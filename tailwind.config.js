@@ -12,38 +12,38 @@ module.exports = {
       },
       colors: {
         primary: {
-          50: 'rgb(var(--tw-color-primary-50) / <alpha-value>)',
+          50: '#F1FAEC',
           //* Background
-          100: 'rgb(var(--tw-color-primary-100) / <alpha-value>)',
-          200: 'rgb(var(--tw-color-primary-200) / <alpha-value>)',
+          100: '#E4F4D8',
+          200: '#C9E9B1',
           //* Complement
-          300: 'rgb(var(--tw-color-primary-300) / <alpha-value>)',
-          400: 'rgb(var(--tw-color-primary-400) / <alpha-value>)',
+          300: '#AEDF8B',
+          400: '#93D464',
           //* Default
-          500: 'rgb(var(--tw-color-primary-500) / <alpha-value>)',
+          500: '#78C93D',
           //* Hovered
-          600: 'rgb(var(--tw-color-primary-600) / <alpha-value>)',
+          600: '#60A131',
           //* Active
-          700: 'rgb(var(--tw-color-primary-700) / <alpha-value>)',
-          800: 'rgb(var(--tw-color-primary-800) / <alpha-value>)',
-          900: 'rgb(var(--tw-color-primary-900) / <alpha-value>)',
+          700: '#487925',
+          800: '#305018',
+          900: '#18280C',
         },
         secondary: {
-          50: '#EFF9F8',
+          50: '#FEF5EB',
           //* Background
-          100: '#E8F4F3',
-          200: '#E0F3F1',
+          100: '#FCEBD7',
+          200: '#F9D7AF',
           //* Complement
-          300: '#D0EDEB',
-          400: '#A2DBD7',
+          300: '#F7C287',
+          400: '#F4AE5F',
           //* Default
-          500: '#40A69F',
+          500: '#F19A37',
           //* Hovered
-          600: '#3B9993',
+          600: '#C17B2C',
           //* Active
-          700: '#2F7A75',
-          800: '#235C58',
-          900: '#173D3A',
+          700: '#915C21',
+          800: '#603E16',
+          900: '#301F0B',
         },
         typo: {
           DEFAULT: '#1F1F1F',
