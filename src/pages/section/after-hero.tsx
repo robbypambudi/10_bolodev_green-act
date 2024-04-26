@@ -1,4 +1,4 @@
-import { Book, Heart, Volume2 } from 'lucide-react';
+import { Book, Heart, Megaphone } from 'lucide-react';
 import Image from 'next/image';
 import React, { ReactElement } from 'react';
 
@@ -17,7 +17,7 @@ const listData = [
     description:
       'Penghijauan mengajak pengguna untuk berpartisipasi dalam berbagai kegiatan penghijauan yang praktis dan bermakna, seperti penanaman pohon, pembersihan lingkungan, dan daur ulang.',
     bgColor: 'bg-primary-100',
-    icon: <Volume2 size={24} className='text-primary-400' />,
+    icon: <Megaphone size={24} className='text-primary-400' />,
   },
   {
     title: 'Event',

@@ -6,6 +6,7 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
 import AfterHeroSection from '@/pages/section/after-hero';
+import CampaignSection from '@/pages/section/campaign';
 import EventSection from '@/pages/section/event';
 import HeroSection from '@/pages/section/hero';
 
@@ -18,6 +19,7 @@ export default function HomePage() {
           <Header />
           <HeroSection />
           <AfterHeroSection />
+          <CampaignSection />
           <EventSection />
           <Footer />
         </section>

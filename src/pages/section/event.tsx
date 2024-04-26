@@ -2,7 +2,7 @@ import React from 'react';
 
 import Typography from '@/components/typography/Typography';
 
-import EventCard from '@/pages/landing/card/event-card';
+import EventCard from '@/pages/section/components/card/event-card';
 
 const EventSection = () => {
   return (
