@@ -12,26 +12,30 @@ import PrimaryLink from "@/components/links/PrimaryLink";
 import Typography from "@/components/typography/Typography";
 import REGEX from "@/constant/regex";
 import clsxm from "@/lib/clsxm";
+import { exactLength } from "@/lib/form-utils";
 import logger from "@/lib/logger";
 import { useLoginMutation } from "@/pages/login/hooks/mutation";
+import { useRegisterMutation } from "@/pages/register/hooks/mutation";
 import clsx from "clsx";
 import { ClipboardList } from "lucide-react";
+import { useRouter } from "next/router";
 import { FormProvider, useForm } from "react-hook-form";
 
 export default withAuth(LoginPage, 'auth');
 function LoginPage() {
-
-  const { mutateAsync: login, isLoading } = useLoginMutation();
+  const router = useRouter();
+  const { mutateAsync: register, isLoading } = useRegisterMutation();
 
   const methods = useForm();
 
   const { handleSubmit } = methods;
 
   const onSubmit = async (data: any) => {
-    login(data).catch((error) => {
-      logger('error', error);
+    register(data).then((error) => {
+      router.push('/login');
     });
   }
+
 
   return (
     <Layout>
@@ -67,6 +71,14 @@ function LoginPage() {
               <FormProvider {...methods}>
                 <form onSubmit={handleSubmit(onSubmit)} className='space-y-3'>
                   <Input
+                    id='name'
+                    label='Name'
+                    validation={{
+                      required: 'Name harus diisi',
+                    }}
+                    placeholder='Masukkan Nama'
+                  />
+                  <Input
                     id='email'
                     label='Email'
                     validation={{
@@ -84,9 +96,16 @@ function LoginPage() {
                     label='Password'
                     validation={{
                       required: 'Password harus diisi',
-
                     }}
                     placeholder='Masukkan Password'
+                  />
+                  <PasswordInput
+                    id='password_confirmation'
+                    label='Konfirmasi Password'
+                    validation={{
+                      required: 'Konfirmasi Password harus diisi',
+                    }}
+                    placeholder='Masukkan Konfirmasi Password'
                   />
                   <Button
                     type='submit'
@@ -94,7 +113,7 @@ function LoginPage() {
                     leftIcon={ClipboardList}
                     isLoading={isLoading}
                   >
-                    Masuk
+                    Register
                   </Button>
 
                   <DevelopmentCard className='py-6'>
@@ -139,9 +158,8 @@ function LoginHeader({
         Kembali
       </ArrowLink>
       <Typography as='h1' variant='j1' className='mt-6 font-semibold'>
-        Login
+        Pendaftaran
       </Typography>
-
     </header>
   );
 }

@@ -1,1 +1,1 @@
-export const JWT_TOKEN_KEY = '@ppdb-jatim/token';
+export const JWT_TOKEN_KEY = '@greenact/token';
