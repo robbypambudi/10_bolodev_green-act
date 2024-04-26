@@ -6,7 +6,7 @@ import EventCard from '@/pages/landing/card/event-card';
 
 const EventSection = () => {
   return (
-    <section className='p-20'>
+    <section className='layout my-10'>
       <Typography as='h1' variant='j1'>
         Event Now
       </Typography>
