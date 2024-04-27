@@ -102,7 +102,7 @@ const EduVideoDetail = () => {
               </div>
 
               <Typography as='h1' variant='j1'>
-                Video Title
+                #EigerPeduli - Gerakan Tanam Indonesia
               </Typography>
 
               <Typography

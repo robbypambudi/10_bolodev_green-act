@@ -1,8 +1,9 @@
 import { Clock, Heart } from 'lucide-react';
 
-import UnderlineLink from '@/components/links/UnderlineLink';
 import Tag from '@/components/tag/Tag';
 import Typography from '@/components/typography/Typography';
+
+import TukarPoinModal from '@/pages/section/components/TukarPoinModal';
 
 const VoucherCard = ({
   name,
@@ -30,12 +31,17 @@ const VoucherCard = ({
       <Typography as='h2' className='text-2xl font-semibold mt-4'>
         {name}
       </Typography>
-      <UnderlineLink
-        href='/'
-        className='text-primary-400 mt-4 border-primary-400'
-      >
-        Tukar Poin
-      </UnderlineLink>
+
+      <TukarPoinModal>
+        {({ openModal }) => (
+          <Typography
+            onClick={openModal}
+            className='text-primary-400 mt-4 border-primary-400 underline decoration-dashed hover:decoration-solid'
+          >
+            Tukar Poin
+          </Typography>
+        )}
+      </TukarPoinModal>
     </div>
   );
 };

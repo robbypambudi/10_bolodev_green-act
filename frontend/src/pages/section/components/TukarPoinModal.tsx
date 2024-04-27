@@ -1,15 +1,15 @@
 import * as React from 'react';
 
 import Button from '@/components/buttons/Button';
+import ButtonLink from '@/components/links/ButtonLink';
 import Modal from '@/components/modal/Modal';
-import NextImage from '@/components/NextImage';
 import Typography from '@/components/typography/Typography';
 
 type ModalReturnType = {
   openModal: () => void;
 };
 
-export default function QRModal({
+export default function TukarPoinModal({
   children,
 }: {
   children: (props: ModalReturnType) => JSX.Element;
@@ -22,28 +22,14 @@ export default function QRModal({
   return (
     <>
       {children(modalReturn)}
-      <Modal
-        open={open}
-        setOpen={setOpen}
-        title='Scan QR Code untuk mendapatkan voucher'
-      >
-        <Modal.Section className='flex flex-col items-center'>
-          <NextImage
-            alt='qr code'
-            src='/images/qr-code.webp'
-            width={400}
-            height={400}
-          />
-          <Typography
-            as='p'
-            variant='h2'
-            className='text-secondary-400 font-semibold mt-4'
-          >
-            Kode : BDX87YS00PO
+      <Modal open={open} setOpen={setOpen} title='Tukar Poin'>
+        <Modal.Section className='flex items-center'>
+          <Typography as='p' variant='h2' className='font-semibold mt-4'>
+            Apakah anda yakin ingin menukar poin?
           </Typography>
         </Modal.Section>
         <Modal.Section>
-          <div className='flex justify-end'>
+          <div className='flex justify-end gap-2'>
             <Button
               onClick={() => {
                 setOpen(false);
@@ -53,6 +39,7 @@ export default function QRModal({
             >
               Kembali
             </Button>
+            <ButtonLink href='dashboard/point-voucher'>Tukar</ButtonLink>
           </div>
         </Modal.Section>
       </Modal>
