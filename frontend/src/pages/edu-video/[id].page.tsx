@@ -65,7 +65,7 @@ const List = ({ title, poin }: { title: string; poin: number }) => {
           {title}
         </Typography>
       </div>
-      <ButtonLink href='edu-video/1' className='border-none py-2'>
+      <ButtonLink href='1' className='border-none py-2'>
         Tonton Video
       </ButtonLink>
     </div>
@@ -80,7 +80,10 @@ const ECoursePage = () => {
       <main>
         <Header />
         <div className='flex flex-col layout mt-8 mb-16'>
-          <Breadcrumb crumbs={['/', 'edu-video/[id]']} className='mb-4' />
+          <Breadcrumb
+            crumbs={['/edu-video', '/edu-video/[id]']}
+            className='mb-4'
+          />
 
           <section className='flex gap-10'>
             {/* ====== SECTION KIRI ======= */}
@@ -93,7 +96,7 @@ const ECoursePage = () => {
                   height={1200}
                   className='w-full h-full object-contain'
                 />
-                <span className='rounded-full p-4 absolute z-50 bg-typo-divider cursor-pointer'>
+                <span className='rounded-full p-4 absolute z-10 bg-typo-divider cursor-pointer'>
                   <Play size={24} className='text-primary-400' />
                 </span>
                 <div className='absolute inset-0 flex items-center justify-center bg-black opacity-50'>
@@ -148,7 +151,7 @@ const ECoursePage = () => {
             </div>
 
             {/* ====== SECTION KANAN ======= */}
-            <div className='w-4/12 flex flex-col items-start'>
+            <div className='w-4/12 flex flex-col items-center'>
               {listData.map((item, index) => (
                 <div key={index} className='w-full'>
                   <List title={item.title} poin={item.poin} />

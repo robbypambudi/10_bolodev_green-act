@@ -2,7 +2,7 @@ import { HeartIcon, Play } from 'lucide-react';
 import React from 'react';
 
 import ButtonLink from '@/components/links/ButtonLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
+import UnderlineLink from '@/components/links/UnderlineLink';
 import NextImage from '@/components/NextImage';
 import Typography from '@/components/typography/Typography';
 
@@ -38,7 +38,7 @@ const List = ({ title, poin }: { title: string; poin: number }) => {
           {title}
         </Typography>
       </div>
-      <ButtonLink href='edu-video' className='border-none py-2'>
+      <ButtonLink href='edu-video/1' className='border-none py-2'>
         Tonton Video
       </ButtonLink>
     </div>
@@ -57,7 +57,7 @@ const VideoSection = () => {
           height={1200}
           className='w-full h-full object-contain'
         />
-        <span className='rounded-full p-4 absolute z-50 bg-typo-divider cursor-pointer'>
+        <span className='rounded-full p-4 absolute z-10 bg-typo-divider cursor-pointer'>
           <Play size={24} className='text-primary-400' />
         </span>
         <div className='absolute inset-0 flex items-center justify-center bg-black opacity-50'>
@@ -80,12 +80,12 @@ const VideoSection = () => {
           </div>
         ))}
 
-        <UnstyledLink
-          href='edu-video/1'
-          className='text-base text-primary-500 hover:text-primary-600 duration-150 w-full cursor-pointer text-center'
+        <UnderlineLink
+          href='edu-video'
+          className='text-base text-primary-500 duration-150 cursor-pointer'
         >
           Lihat Semua Video
-        </UnstyledLink>
+        </UnderlineLink>
       </div>
     </section>
   );

@@ -17,7 +17,8 @@ const breadcrumbs = {
   '/event': 'Browse Event',
   '/event/[id]': 'Detail Event',
 
-  'edu-video/[id]': 'Detail Edu Video',
+  '/edu-video': 'Browse Edu Video',
+  '/edu-video/[id]': 'Detail Edu Video',
 
   '/crowd-funding': 'Browse Crowd Funding',
   '/crowd-funding/[id]': 'Detail Crowd Funding',
