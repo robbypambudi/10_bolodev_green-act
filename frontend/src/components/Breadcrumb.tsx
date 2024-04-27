@@ -22,6 +22,8 @@ const breadcrumbs = {
 
   '/crowd-funding': 'Browse Crowd Funding',
   '/crowd-funding/[id]': 'Detail Crowd Funding',
+
+  '/voucher': 'Browse Voucher',
 };
 type BreadcrumbProps = {
   crumbs: Array<keyof typeof breadcrumbs>;
