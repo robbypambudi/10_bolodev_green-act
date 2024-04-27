@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import { navbarLink } from '@/lib/content/navbar';
 
+import ButtonLink from '@/components/links/ButtonLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 export default function Header() {
@@ -18,7 +19,7 @@ export default function Header() {
             height={100}
           />
         </UnstyledLink>
-        <nav>
+        <nav className='flex gap-12'>
           <ul className='flex items-center justify-between space-x-12'>
             {navbarLink.map(({ href, label }) => (
               <li key={`${href}${label}`}>
@@ -31,6 +32,9 @@ export default function Header() {
               </li>
             ))}
           </ul>
+          <ButtonLink href='/login' className='border-none'>
+            Login
+          </ButtonLink>
         </nav>
       </div>
     </header>
