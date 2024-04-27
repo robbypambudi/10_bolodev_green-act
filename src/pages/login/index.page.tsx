@@ -1,26 +1,28 @@
-import NextImage from "@/components/NextImage";
-import Seo from "@/components/Seo";
-import Button from "@/components/buttons/Button";
-import DevelopmentCard from "@/components/cards/DevelopmentCard";
-import DatePicker from "@/components/forms/DatePicker";
-import Input from "@/components/forms/Input";
-import PasswordInput from "@/components/forms/PasswordInput";
-import withAuth from "@/components/hoc/withAuth";
-import Layout from "@/components/layout/Layout";
-import ArrowLink from "@/components/links/ArrowLink";
-import PrimaryLink from "@/components/links/PrimaryLink";
-import Typography from "@/components/typography/Typography";
-import REGEX from "@/constant/regex";
-import clsxm from "@/lib/clsxm";
-import logger from "@/lib/logger";
-import { useLoginMutation } from "@/pages/login/hooks/mutation";
-import clsx from "clsx";
-import { ClipboardList } from "lucide-react";
-import { FormProvider, useForm } from "react-hook-form";
+import clsx from 'clsx';
+import { ClipboardList } from 'lucide-react';
+import { FormProvider, useForm } from 'react-hook-form';
+
+import clsxm from '@/lib/clsxm';
+import logger from '@/lib/logger';
+
+import Button from '@/components/buttons/Button';
+import DevelopmentCard from '@/components/cards/DevelopmentCard';
+import Input from '@/components/forms/Input';
+import PasswordInput from '@/components/forms/PasswordInput';
+import withAuth from '@/components/hoc/withAuth';
+import Header from '@/components/layout/Header';
+import Layout from '@/components/layout/Layout';
+import ArrowLink from '@/components/links/ArrowLink';
+import PrimaryLink from '@/components/links/PrimaryLink';
+import NextImage from '@/components/NextImage';
+import Seo from '@/components/Seo';
+import Typography from '@/components/typography/Typography';
+
+import REGEX from '@/constant/regex';
+import { useLoginMutation } from '@/pages/login/hooks/mutation';
 
 export default withAuth(LoginPage, 'auth');
 function LoginPage() {
-
   const { mutateAsync: login, isLoading } = useLoginMutation();
 
   const methods = useForm();
@@ -31,13 +33,14 @@ function LoginPage() {
     login(data).catch((error) => {
       logger('error', error);
     });
-  }
+  };
 
   return (
     <Layout>
       <Seo templateTitle='Login Pendaftaran Jalur Lomba' />
 
       <main>
+        <Header />
         <section className=''>
           <div
             className={clsx([
@@ -47,7 +50,7 @@ function LoginPage() {
           >
             <LoginHeader data-id='header-for-mobile' className='md:hidden' />
 
-            <div className="w-320px">
+            <div className='w-320px'>
               <NextImage
                 src='/images/auth/hero.png'
                 alt='Login Illustration'
@@ -75,7 +78,6 @@ function LoginPage() {
                         value: REGEX.EMAIL,
                         message: 'Email tidak valid',
                       },
-
                     }}
                     placeholder='Masukkan Email'
                   />
@@ -84,7 +86,6 @@ function LoginPage() {
                     label='Password'
                     validation={{
                       required: 'Password harus diisi',
-
                     }}
                     placeholder='Masukkan Password'
                   />
@@ -121,7 +122,7 @@ function LoginPage() {
         </section>
       </main>
     </Layout>
-  )
+  );
 }
 
 function LoginHeader({
@@ -141,7 +142,6 @@ function LoginHeader({
       <Typography as='h1' variant='j1' className='mt-6 font-semibold'>
         Login
       </Typography>
-
     </header>
   );
 }

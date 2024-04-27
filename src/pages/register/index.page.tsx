@@ -1,25 +1,25 @@
-import NextImage from "@/components/NextImage";
-import Seo from "@/components/Seo";
-import Button from "@/components/buttons/Button";
-import DevelopmentCard from "@/components/cards/DevelopmentCard";
-import DatePicker from "@/components/forms/DatePicker";
-import Input from "@/components/forms/Input";
-import PasswordInput from "@/components/forms/PasswordInput";
-import withAuth from "@/components/hoc/withAuth";
-import Layout from "@/components/layout/Layout";
-import ArrowLink from "@/components/links/ArrowLink";
-import PrimaryLink from "@/components/links/PrimaryLink";
-import Typography from "@/components/typography/Typography";
-import REGEX from "@/constant/regex";
-import clsxm from "@/lib/clsxm";
-import { exactLength } from "@/lib/form-utils";
-import logger from "@/lib/logger";
-import { useLoginMutation } from "@/pages/login/hooks/mutation";
-import { useRegisterMutation } from "@/pages/register/hooks/mutation";
-import clsx from "clsx";
-import { ClipboardList } from "lucide-react";
-import { useRouter } from "next/router";
-import { FormProvider, useForm } from "react-hook-form";
+import clsx from 'clsx';
+import { ClipboardList } from 'lucide-react';
+import { useRouter } from 'next/router';
+import { FormProvider, useForm } from 'react-hook-form';
+
+import clsxm from '@/lib/clsxm';
+
+import Button from '@/components/buttons/Button';
+import DevelopmentCard from '@/components/cards/DevelopmentCard';
+import Input from '@/components/forms/Input';
+import PasswordInput from '@/components/forms/PasswordInput';
+import withAuth from '@/components/hoc/withAuth';
+import Header from '@/components/layout/Header';
+import Layout from '@/components/layout/Layout';
+import ArrowLink from '@/components/links/ArrowLink';
+import PrimaryLink from '@/components/links/PrimaryLink';
+import NextImage from '@/components/NextImage';
+import Seo from '@/components/Seo';
+import Typography from '@/components/typography/Typography';
+
+import REGEX from '@/constant/regex';
+import { useRegisterMutation } from '@/pages/register/hooks/mutation';
 
 export default withAuth(LoginPage, 'auth');
 function LoginPage() {
@@ -34,14 +34,14 @@ function LoginPage() {
     register(data).then((error) => {
       router.push('/login');
     });
-  }
-
+  };
 
   return (
     <Layout>
       <Seo templateTitle='Login Pendaftaran Jalur Lomba' />
 
       <main>
+        <Header />
         <section className=''>
           <div
             className={clsx([
@@ -51,7 +51,7 @@ function LoginPage() {
           >
             <LoginHeader data-id='header-for-mobile' className='md:hidden' />
 
-            <div className="w-320px">
+            <div className='w-320px'>
               <NextImage
                 src='/images/auth/hero.png'
                 alt='Login Illustration'
@@ -87,7 +87,6 @@ function LoginPage() {
                         value: REGEX.EMAIL,
                         message: 'Email tidak valid',
                       },
-
                     }}
                     placeholder='Masukkan Email'
                   />
@@ -140,7 +139,7 @@ function LoginPage() {
         </section>
       </main>
     </Layout>
-  )
+  );
 }
 
 function LoginHeader({
