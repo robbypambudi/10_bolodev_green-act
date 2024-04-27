@@ -8,52 +8,36 @@ export type FooterDataType = {
 
 export const footerData: FooterDataType[] = [
   {
-    name: 'Informasi',
+    name: 'Fitur',
     children: [
       {
-        name: 'Ketentuan',
-        href: '/informasi/ketentuan/',
+        name: 'Campaign',
+        href: '/campaign',
       },
       {
-        name: 'Prosedur',
-        href: '/informasi/prosedur/',
+        name: 'Event',
+        href: '/event',
       },
       {
-        name: 'Jadwal',
-        href: '/informasi/jadwal/',
+        name: 'Crowdfunding',
+        href: '/crowdfunding',
       },
       {
-        name: 'Pagu',
-        href: '/lihat/pagu/',
-      },
-      {
-        name: 'Nilai Indeks dan Akreditasi Sekolah',
-        href: '/lihat/nilai-indeks/',
+        name: 'Edu Video',
+        href: '/edu-video/1',
       },
     ],
   },
   {
-    name: 'Pra-Pendaftaran',
+    name: 'Sponsor & Partnership',
     children: [
       {
-        name: 'Lihat Nilai Prestasi Gabungan',
-        href: '/nilai-prestasi-gabungan/login/',
+        name: 'Crowdfunding',
+        href: '/crowdfunding',
       },
       {
-        name: 'Verifikasi Rapor',
-        href: '/verifikasi-rapor/login/',
-      },
-      {
-        name: 'Pengambilan PIN',
-        href: '/ambil-pin/login/',
-      },
-      {
-        name: 'Verifikasi Kesehatan',
-        href: '/verifikasi-kesehatan/login/',
-      },
-      {
-        name: 'Lihat PIN',
-        href: '/lihat-pin/login/',
+        name: 'CSR',
+        href: '/csr',
       },
     ],
   },
