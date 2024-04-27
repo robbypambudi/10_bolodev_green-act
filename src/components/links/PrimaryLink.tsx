@@ -30,7 +30,7 @@ const PrimaryLink = React.forwardRef<HTMLAnchorElement, PrimaryLinkProps>(
         ref={ref}
         {...rest}
         className={clsxm(
-          'button inline-flex items-center justify-center font-semibold',
+          'button inline-flex items-center justify-center font-semibold font-averta',
           'focus:outline-none focus-visible:ring',
           'transition duration-100',
           'underline decoration-current hover:decoration-white/0 active:decoration-current disabled:hover:decoration-current',

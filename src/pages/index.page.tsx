@@ -10,6 +10,7 @@ import CampaignSection from '@/pages/section/campaign';
 import CSRSection from '@/pages/section/csr';
 import EventSection from '@/pages/section/event';
 import HeroSection from '@/pages/section/hero';
+import VideoSection from '@/pages/section/video';
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
           <AfterHeroSection />
           <CampaignSection />
           <CSRSection />
+          <VideoSection />
           <EventSection />
           <Footer />
         </section>

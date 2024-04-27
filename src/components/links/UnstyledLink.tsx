@@ -23,7 +23,7 @@ const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
         <Link
           href={href}
           ref={ref}
-          className={className}
+          className={clsxm('font-averta', className)}
           {...rest}
           {...nextLinkProps}
         >
@@ -39,7 +39,7 @@ const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
         rel='noopener noreferrer'
         href={href}
         {...rest}
-        className={clsxm('cursor-newtab', className)}
+        className={clsxm('cursor-newtab font-averta', className)}
       >
         {children}
       </a>

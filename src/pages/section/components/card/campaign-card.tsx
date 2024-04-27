@@ -26,7 +26,7 @@ const CampaignCard = ({
 
         <div className='absolute inset-0 flex justify-start m-3 card-img_hover gap-1'>
           <div className='bg-white text-secondary-400 h-10 px-5 rounded-3xl flex gap-2 justify-center items-center cursor-pointer'>
-            <HeartIcon size={20} />
+            <HeartIcon size={20} fill='#F4AE5F' />
             <Typography
               as='p'
               className='text-sm text-secondary-400 font-semibold'
