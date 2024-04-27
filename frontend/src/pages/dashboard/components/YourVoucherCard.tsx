@@ -1,5 +1,7 @@
-import ButtonLink from '@/components/links/ButtonLink';
+import Button from '@/components/buttons/Button';
 import Typography from '@/components/typography/Typography';
+
+import QRModal from '@/pages/dashboard/components/QRModal';
 
 const YourVoucherCard = ({
   name,
@@ -16,12 +18,16 @@ const YourVoucherCard = ({
       <Typography as='h2' className='text-2xl mt-2'>
         {name}
       </Typography>
-      <ButtonLink
-        href='/'
-        className='mt-4 bg-white text-black border-black hover:bg-primary-500 hover:border-white hover:text-white w-full'
-      >
-        Lihat Voucher
-      </ButtonLink>
+      <QRModal>
+        {({ openModal }) => (
+          <Button
+            onClick={openModal}
+            className='mt-4 bg-white text-black border-black hover:bg-primary-500 hover:border-white hover:text-white w-full'
+          >
+            Lihat Voucher
+          </Button>
+        )}
+      </QRModal>
     </div>
   );
 };
