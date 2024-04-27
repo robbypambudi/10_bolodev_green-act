@@ -7,7 +7,7 @@ import EventCard from '@/pages/section/components/card/event-card';
 
 const CampaignSection = () => {
   return (
-    <section className='bg-[#F0F2F5] py-20'>
+    <section className='py-20'>
       <div className='layout'>
         <div className='flex justify-between items-center'>
           <div className='flex flex-col'>
@@ -21,10 +21,31 @@ const CampaignSection = () => {
           </div>
           <Button className='border-none py-3'>Lihat Semua</Button>
         </div>
-        <div className='flex mt-10 justify-between'>
-          <EventCard />
-          <EventCard />
-          <EventCard />
+        <div className='flex mt-10 justify-between gap-10'>
+          <EventCard
+            deadline='28 Apr 2024'
+            poin={100}
+            count_person='20/100'
+            name='Gowes to Kebun Binatang Surabaya'
+            description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
+            image='/images/dummy-card.png'
+          />
+          <EventCard
+            deadline='28 Apr 2024'
+            poin={100}
+            count_person='20/100'
+            name='Gowes to Kebun Binatang Surabaya'
+            description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
+            image='/images/dummy-card.png'
+          />
+          <EventCard
+            deadline='28 Apr 2024'
+            poin={100}
+            count_person='20/100'
+            name='Gowes to Kebun Binatang Surabaya'
+            description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
+            image='/images/dummy-card.png'
+          />
         </div>
       </div>
     </section>
