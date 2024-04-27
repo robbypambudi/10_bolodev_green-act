@@ -55,7 +55,7 @@ const groupNavs: GroupedNavigation[] = [
         icon: Scan,
       },
       {
-        name: 'Campaign Approval',
+        name: 'Campaign',
         href: '/vendor/dashboard/campaign',
         icon: Scan,
       },

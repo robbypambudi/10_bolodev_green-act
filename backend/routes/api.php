@@ -71,4 +71,6 @@ Route::group([
     'prefix' => 'vendor'
 ], function ($router) {
     Route::get('/campaigns', [VendorController::class, 'campaigns'])->middleware('auth:api')->name('vendor.campaigns');
+    Route::get('/campaign/task/{campaign_task_id}', [VendorController::class, 'campaignTaskUser'])->middleware('auth:api')->name('vendor.campaignTaskUser');
+    Route::get('/campaign/{id}', [VendorController::class, 'campaignTask'])->middleware('auth:api')->name('vendor.campaignTask');
 });
