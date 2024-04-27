@@ -15,25 +15,25 @@ const ProgressNominal = ({
   total: number;
 }) => {
   return (
-    <div className='flex'>
+    <div className='flex mt-4'>
       <Typography
         as='h2'
         variant='s1'
-        className='mt-4 text-2xl font-semibold text-secondary-500'
+        className='text-lg md:text-2xl font-semibold text-secondary-500'
       >
         {formatToRupiah(currentNominal)}
       </Typography>
       <Typography
         as='h2'
         variant='s1'
-        className='mt-4 text-2xl text-typo-tertiary mx-2'
+        className='text-lg md:text-2xl text-typo-tertiary mx-2'
       >
         /
       </Typography>
       <Typography
         as='h2'
         variant='s1'
-        className='mt-4 text-2xl text-typo-tertiary'
+        className='text-lg md:text-2xl text-typo-tertiary'
       >
         {formatToRupiah(total)}
       </Typography>

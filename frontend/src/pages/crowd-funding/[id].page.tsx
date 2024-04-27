@@ -1,3 +1,4 @@
+import { formatToRupiah } from '@/lib/currency';
 import { formatLocaleDate } from '@/lib/date';
 
 import Breadcrumb from '@/components/Breadcrumb';
@@ -6,6 +7,7 @@ import AvatarCard from '@/components/cards/AvatarCard';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import NextImage from '@/components/NextImage';
+import ProgressBar from '@/components/ProgressBar';
 import Seo from '@/components/Seo';
 import {
   Tabs,
@@ -20,6 +22,40 @@ type KetentuanTabsType = {
   id: string;
   label: string;
   content: React.ReactNode;
+};
+
+const ProgressNominal = ({
+  currentNominal,
+  total,
+}: {
+  currentNominal: number;
+  total: number;
+}) => {
+  return (
+    <div className='flex mb-2'>
+      <Typography
+        as='h2'
+        variant='s1'
+        className='text-lg md:text-2xl font-semibold text-secondary-500'
+      >
+        {formatToRupiah(currentNominal)}
+      </Typography>
+      <Typography
+        as='h2'
+        variant='s1'
+        className='text-lg md:text-2xl text-typo-tertiary mx-2'
+      >
+        /
+      </Typography>
+      <Typography
+        as='h2'
+        variant='s1'
+        className='text-lg md:text-2xl text-typo-tertiary'
+      >
+        {formatToRupiah(total)}
+      </Typography>
+    </div>
+  );
 };
 
 export default function DetailCrowdfundingPage() {
@@ -81,7 +117,8 @@ export default function DetailCrowdfundingPage() {
                   <Tag color='danger'>2 hari lagi</Tag>
                 </div>
                 <Typography as='h1' variant='j1'>
-                  Crowdfunding Title
+                  Tanam Mangrove untuk Restorasi Lingkungan dan Kesejahteraan
+                  Masyarakat
                 </Typography>
                 <Typography
                   as='h2'
@@ -113,8 +150,9 @@ export default function DetailCrowdfundingPage() {
                 ))}
               </Tabs>
             </div>
-            <div>
-              <div className='p-4 mt-4'>
+
+            <div className='p-4'>
+              <div className='mt-4'>
                 <Typography as='h3' variant='h3'>
                   Donatur <span className='text-primary-500'>(120+)</span>
                 </Typography>
@@ -141,6 +179,7 @@ export default function DetailCrowdfundingPage() {
                   ))}
                 </Tabs>
               </div>
+
               <Typography
                 as='h2'
                 variant='s1'
@@ -148,29 +187,9 @@ export default function DetailCrowdfundingPage() {
               >
                 Dana Terkumpul
               </Typography>
-              <div className='flex'>
-                <Typography
-                  as='h2'
-                  variant='s1'
-                  className='text-2xl font-semibold text-secondary-500'
-                >
-                  Rp423.000
-                </Typography>
-                <Typography
-                  as='h2'
-                  variant='s1'
-                  className='text-2xl text-typo-tertiary mx-2'
-                >
-                  /
-                </Typography>
-                <Typography
-                  as='h2'
-                  variant='s1'
-                  className='text-2xl text-typo-tertiary'
-                >
-                  Rp15.000.000
-                </Typography>
-              </div>
+              <ProgressNominal currentNominal={4230000} total={15000000} />
+              <ProgressBar progress={30} />
+
               <Button className='mt-4 w-full border-none' variant='primary'>
                 Donasi
               </Button>
@@ -204,36 +223,40 @@ function ContentTabs() {
   return (
     <div className='mt-4'>
       <Typography as='p' className='prose max-w-none'>
-        Sed ipsum morbi est eu. Commodo elementum eget nulla non magnis
-        malesuada pharetra ut. Id eu vestibulum faucibus venenatis. At aliquam
-        laoreet viverra adipiscing eu in lorem integer a. Ante nibh porttitor
-        enim enim. Bibendum eget augue libero est leo ante diam egestas.
-        Pellentesque etiam sit leo sed. In non eu senectus aliquam rhoncus
-        egestas sit vitae. Nec platea amet ipsum sit nec.
+        Sebuah kampanye yang bertujuan untuk memobilisasi masyarakat dalam upaya
+        restorasi ekosistem mangrove guna memperbaiki lingkungan dan
+        meningkatkan kesejahteraan komunitas lokal. Melalui kampanye ini, kami
+        berkomitmen untuk mengedukasi dan menginspirasi masyarakat tentang
+        pentingnya menjaga dan memulihkan ekosistem mangrove yang rusak. Dengan
+        fokus pada penanaman mangrove, kami mengajak individu, kelompok, dan
+        organisasi untuk turut serta dalam kegiatan restorasi.
         <br />
         <br />
-        Feugiat in tempor amet magna sem tellus maecenas convallis etiam.
-        Quisque duis pretium tellus elementum. Non pretium proin lorem congue
-        nec sed. Scelerisque scelerisque viverra in fermentum luctus. Senectus
-        vitae sollicitudin tortor vitae eu dis bibendum nisl. Eu vulputate quam
-        augue ultrices eget. Aliquet venenatis blandit rhoncus tristique ornare
-        cum lectus iaculis ut. Mi accumsan viverra massa a imperdiet faucibus.
-        Pulvinar metus egestas dapibus ullamcorper viverra in velit congue. Ac
-        egestas nibh proin etiam cursus tristique. At condimentum nisl tristique
-        malesuada urna. Vulputate sagittis arcu lacinia feugiat amet
+        Kami percaya bahwa penanaman mangrove bukan hanya akan membantu
+        memulihkan ekosistem yang terganggu, tetapi juga akan memberikan manfaat
+        jangka panjang bagi lingkungan dan masyarakat sekitar. Ekosistem
+        mangrove memiliki peran penting dalam melindungi pantai dari abrasi dan
+        badai, menyediakan habitat bagi berbagai spesies, serta menjaga
+        keseimbangan ekologi perairan. Selain mengorganisir kegiatan langsung
+        seperti penanaman mangrove, kampanye ini juga akan menyelenggarakan
+        berbagai kegiatan pendukung seperti sosialisasi, pelatihan, dan
+        lokakarya tentang pentingnya konservasi mangrove dan praktik-praktik
+        pengelolaan yang berkelanjutan.
         <br />
         <br />
-        Consequat donec sem porttitor sed arcu cras faucibus id potenti. Ac
-        viverra ultrices risus vitae nulla tempor proin venenatis. Habitant
-        lectus accumsan donec fermentum eu sit egestas. Quam vulputate et sed eu
-        morbi id luctus. Enim tellus ut aliquam eu. Gravida pulvinar fringilla
-        laoreet netus. Eu quis feugiat ipsum elementum id bibendum ac. Maecenas
-        nunc lectus nibh hendrerit. Interdum lacinia id in cursus neque justo.
-        Sit donec dignissim ultrices imperdiet viverra. Nam eros quis erat sem
-        elit vitae placerat convallis tempor. Orci etiam risus condimentum amet
-        pellentesque id accumsan. Tempus nunc et vulputate enim nibh a nisl
-        tempor tellus. Aliquam pulvinar purus a lorem blandit id non cras. Ut
-        lorem elit mollis neque malesuada in. Blandit ornare.
+        Dengan meningkatkan pemahaman dan kesadaran masyarakat, kami berharap
+        dapat menciptakan budaya pelestarian lingkungan yang kuat dan
+        berkelanjutan. Kampanye "Tanam Mangrove untuk Restorasi Lingkungan dan
+        Kesejahteraan Masyarakat" juga akan mengedepankan partisipasi aktif
+        masyarakat dalam pengelolaan dan pemantauan ekosistem mangrove setelah
+        proses penanaman selesai. Dengan demikian, kampanye ini tidak hanya
+        bertujuan untuk menghasilkan perubahan fisik, tetapi juga untuk
+        membangun kapasitas lokal dan meningkatkan keterlibatan masyarakat dalam
+        pengelolaan lingkungan mereka sendiri. Melalui kolaborasi dan kerja sama
+        antara berbagai pihak, kami yakin bahwa kampanye ini akan memberikan
+        dampak yang positif bagi lingkungan dan kesejahteraan masyarakat lokal.
+        Mari bergabung bersama kami dalam kampanye ini dan bersama-sama kita
+        tanam mangrove untuk masa depan yang lebih hijau dan berkelanjutan.
       </Typography>
     </div>
   );

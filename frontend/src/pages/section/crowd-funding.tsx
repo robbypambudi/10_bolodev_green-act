@@ -11,7 +11,7 @@ const crowdfundings = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
     image: '/images/crowdfunding/crowdfunding-1.png',
-    deadline: '28 Apr 2024',
+    deadline: '2 hari lagi',
     currentNominal: 4230000,
     total: 15000000,
   },
@@ -20,7 +20,7 @@ const crowdfundings = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
     image: '/images/crowdfunding/crowdfunding-2.png',
-    deadline: '28 Apr 2024',
+    deadline: '2 hari lagi',
     currentNominal: 4230000,
     total: 15000000,
   },
@@ -29,7 +29,7 @@ const crowdfundings = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
     image: '/images/crowdfunding/crowdfunding-1.png',
-    deadline: '28 Apr 2024',
+    deadline: '2 hari lagi',
     currentNominal: 4230000,
     total: 15000000,
   },

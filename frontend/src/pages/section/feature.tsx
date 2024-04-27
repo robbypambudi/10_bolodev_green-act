@@ -1,4 +1,4 @@
-import { Book, Heart, Megaphone } from 'lucide-react';
+import { Book, DollarSign, Heart, Megaphone } from 'lucide-react';
 import React, { ReactElement } from 'react';
 
 import NextImage from '@/components/NextImage';
@@ -25,6 +25,14 @@ const listData = [
       'Kegiatan berkelompok dari beberapa individu untuk melaksanakan aksi bersama dalam menyelesaikan tantangan lingkungan hidup. Layanan ini juga dapat berkolaborasi dengan perusahaan dalam pelaksanaannya.',
     bgColor: 'bg-[#bfbaff]',
     icon: <Heart size={24} className='text-[#4E46B4]' />,
+  },
+
+  {
+    title: 'Crowdfunding',
+    description:
+      'Kegiatan penggalangan dana dengan upaya untuk mengumpulkan dana dari berbagai sumber, baik individu maupun lembaga, dengan tujuan menyelesaikan berbagai permasalah lingkungan hidup.',
+    bgColor: 'bg-yellow-100',
+    icon: <DollarSign size={24} className='text-yellow-500' />,
   },
 ];
 
@@ -89,7 +97,7 @@ const FeatureSection = () => {
               bgColor={item.bgColor}
               icon={item.icon}
             />
-            {index < 2 && <div className='h-[1px] w-full bg-gray-100 my-5' />}
+            {index < 3 && <div className='h-[1px] w-full bg-gray-100 my-5' />}
           </div>
         ))}
       </div>
