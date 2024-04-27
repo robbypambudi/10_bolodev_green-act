@@ -1,36 +1,12 @@
 import { Disclosure } from '@headlessui/react';
 import clsx from 'clsx';
 import {
-  BarChart3,
-  Briefcase,
   ChevronDown,
-  FileCheck,
-  FileEdit,
-  FileHeart,
-  FilePlus,
-  Files,
-  FileText,
-  History,
   Home,
-  Locate,
-  Lock,
   LucideIcon,
-  MapPin,
   Minus,
-  PieChart,
   Plus,
-  Puzzle,
-  RotateCcw,
-  School2,
-  Smartphone,
-  TrendingUp,
-  Trophy,
   User as UserIcon,
-  UserCheck,
-  UserCircle,
-  UserPlus,
-  UserSquare,
-  XSquare,
 } from 'lucide-react';
 import { Contact2 } from 'lucide-react';
 import { useRouter } from 'next/router';
@@ -84,7 +60,6 @@ const groupNavs: GroupedNavigation[] = [
 
 export default function Navigation({ className, ...rest }: NavigationProps) {
   const user = useAuthStore.useUser();
-
 
   return (
     <nav
