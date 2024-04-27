@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '@/components/buttons/Button';
+import ButtonLink from '@/components/links/ButtonLink';
 import Typography from '@/components/typography/Typography';
 
 import EventCard from '@/pages/section/components/card/event-card';
@@ -19,8 +19,11 @@ const CampaignSection = () => {
               edukasi lingkungan.
             </Typography>
           </div>
-          <Button className='border-none py-3'>Lihat Semua</Button>
+          <ButtonLink href='/event' className='border-none py-3'>
+            Lihat Semua
+          </ButtonLink>
         </div>
+
         <div className='flex mt-10 justify-between gap-10'>
           <EventCard
             deadline='28 Apr 2024'

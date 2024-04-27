@@ -20,7 +20,7 @@ const EventCard = ({
   image: string;
 }) => {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col sm:w-[480px] cursor-pointer'>
       <div className='rounded-xl overflow-hidden'>
         <Image
           src={image}

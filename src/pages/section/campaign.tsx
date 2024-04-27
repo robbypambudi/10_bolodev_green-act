@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '@/components/buttons/Button';
+import ButtonLink from '@/components/links/ButtonLink';
 import Typography from '@/components/typography/Typography';
 
 import CampaignCard from '@/pages/section/components/card/campaign-card';
@@ -18,8 +18,11 @@ const CampaignSection = () => {
               Campaign penghijauan yang sedang berlangsung
             </Typography>
           </div>
-          <Button className='border-none py-3'>Lihat Semua</Button>
+          <ButtonLink href='/campaign' className='border-none py-3'>
+            Lihat Semua
+          </ButtonLink>
         </div>
+
         <div className='flex mt-10 justify-between'>
           <CampaignCard
             image='/images/dummy-card.png'
