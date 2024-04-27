@@ -38,7 +38,6 @@
 }
 
 @layer base {
-
   /* #region  /**=========== Fonts =========== */
   @font-face {
     font-family: 'Inter';
@@ -179,7 +178,7 @@
   }
 
   .dashboard-layout {
-    @apply mx-auto w-[92%] max-w-6xl md:w-[95%];
+    @apply mx-auto w-[92%] md:w-[95%];
   }
 
   .bg-dark a.custom-link {
@@ -195,9 +194,11 @@
 @layer utilities {
   .animated-underline {
     background-image: linear-gradient(#33333300, #33333300),
-      linear-gradient(to right,
+      linear-gradient(
+        to right,
         var(--color-primary-400),
-        var(--color-primary-500));
+        var(--color-primary-500)
+      );
     background-size:
       100% 2px,
       0 2px;
