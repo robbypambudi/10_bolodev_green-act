@@ -13,6 +13,9 @@ const breadcrumbs = {
 
   '/campaign': 'Browse Campaign',
   '/campaign/[id]': 'Detail Campaign',
+
+  '/event': 'Browse Event',
+  '/event/[id]': 'Detail Event',
 };
 type BreadcrumbProps = {
   crumbs: Array<keyof typeof breadcrumbs>;
@@ -28,11 +31,18 @@ export default function Breadcrumb({
   const crumbs = _crumbs.slice(0, _crumbs.length - 1);
 
   return (
-    <div className={clsxm('space-x-1 flex justify-start items-center', className)} {...rest}>
+    <div
+      className={clsxm('space-x-1 flex justify-start items-center', className)}
+      {...rest}
+    >
       <IconButton icon={Home} className='!text-[#B00BFF]' variant='ghost' />
       {crumbs.map((crumb) => (
         <React.Fragment key={crumb}>
-          <PrimaryLink href={crumb} className='font-medium !text-[#B00BFF]' size='sm'>
+          <PrimaryLink
+            href={crumb}
+            className='font-medium !text-[#B00BFF]'
+            size='sm'
+          >
             {breadcrumbs[crumb]}
           </PrimaryLink>
           <span className='font-medium text-typo'>/</span>
