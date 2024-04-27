@@ -9,6 +9,7 @@ import { formatLocaleDate } from '@/lib/date';
 import Breadcrumb from '@/components/Breadcrumb';
 import Button from '@/components/buttons/Button';
 import AvatarCard from '@/components/cards/AvatarCard';
+import withAuth from '@/components/hoc/withAuth';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
@@ -34,6 +35,13 @@ type KetentuanTabsType = {
   content: React.ReactNode;
 };
 
+type Task = {
+  campaign_id: string;
+  title: string;
+  description: string;
+  image: string;
+};
+
 type CampaignDetail = {
   campaign: {
     id: string;
@@ -47,9 +55,12 @@ type CampaignDetail = {
     image: string;
   };
   is_registered: boolean;
+
+  task: Task[];
 };
 
-export default function DetailCampaignPage() {
+export default withAuth(DetailCampaignPage, 'all');
+function DetailCampaignPage() {
   const router = useRouter();
 
   const { id } = router.query as { id: string };
@@ -78,7 +89,7 @@ export default function DetailCampaignPage() {
       arrayFormat: 'comma',
     },
   );
-  const { data: queryData } = useQuery<
+  const { data: queryData, refetch } = useQuery<
     ApiResponse<CampaignDetail>,
     AxiosError<ApiError>
   >([url]);
@@ -221,7 +232,7 @@ export default function DetailCampaignPage() {
                 />
                 {data?.is_registered && (
                   <div className='mt-4'>
-                    <UploadTaskModal task={[]}>
+                    <UploadTaskModal task={data.task || []}>
                       {({ openModal }) => (
                         <Button onClick={openModal} className='mt-4 w-full'>
                           Upload Tugas
@@ -236,7 +247,15 @@ export default function DetailCampaignPage() {
                   <Button
                     className='mt-4 w-full'
                     variant='primary'
-                    onClick={() => applyCampaign({ campaign_id: id })}
+                    onClick={() =>
+                      applyCampaign({ campaign_id: id })
+                        .then(() => {
+                          refetch();
+                        })
+                        .catch(() => {
+                          router.push('/login');
+                        })
+                    }
                   >
                     Ikut Campaign
                   </Button>

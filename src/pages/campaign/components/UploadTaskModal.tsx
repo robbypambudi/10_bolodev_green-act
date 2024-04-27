@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
+import logger from '@/lib/logger';
+
 import Button from '@/components/buttons/Button';
 import DropzoneInput from '@/components/forms/DropzoneInput';
 import SearchableSelectInput from '@/components/forms/SearchableSelectInput';
@@ -23,7 +25,7 @@ export default function UploadTaskModal({
 }: {
   children: (props: ModalReturnType) => JSX.Element;
   task: {
-    id: string;
+    campaign_id: string;
     title: string;
   }[];
 }) {
@@ -37,23 +39,23 @@ export default function UploadTaskModal({
   };
 
   const onSubmit = (data: UploadTaskForm) => {
-    console.log(data);
+    logger(data);
   };
 
   return (
     <>
       {children(modalReturn)}
-      <Modal open={open} setOpen={setOpen} title='Upload Tugas'>
+      <Modal open={open} setOpen={setOpen} title='Upload Aksi'>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Modal.Section className='space-y-2'>
               <SearchableSelectInput
                 id='campaign_task_id'
-                label='Task'
-                placeholder='Select Task'
+                label='Bukti Aksi'
+                placeholder='Pilih Aksi'
                 options={task.map((t) => ({
                   label: t.title,
-                  value: t.id,
+                  value: t.campaign_id,
                 }))}
                 validation={{
                   required: { value: true, message: 'Task is required' },
