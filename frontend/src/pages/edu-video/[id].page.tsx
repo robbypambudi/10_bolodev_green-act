@@ -85,9 +85,9 @@ const ECoursePage = () => {
             className='mb-4'
           />
 
-          <section className='flex gap-10'>
+          <section className='flex md:flex-row flex-col gap-10'>
             {/* ====== SECTION KIRI ======= */}
-            <div className='flex flex-col w-8/12 gap-8'>
+            <div className='flex flex-col w-full md:w-8/12 gap-8'>
               <div className='flex items-center justify-center relative rounded-2xl overflow-hidden'>
                 <NextImage
                   src='/images/dummy-card.png'
@@ -151,7 +151,7 @@ const ECoursePage = () => {
             </div>
 
             {/* ====== SECTION KANAN ======= */}
-            <div className='w-4/12 flex flex-col items-center'>
+            <div className='w-full md:w-4/12 flex flex-col items-center'>
               {listData.map((item, index) => (
                 <div key={index} className='w-full'>
                   <List title={item.title} poin={item.poin} />

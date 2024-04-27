@@ -28,12 +28,7 @@ const CampaignPage = () => {
               </Typography>
             </div>
 
-            <div className='mt-10 flex flex-wrap justify-between gap-5 gap-y-16'>
-              <CampaignCard
-                image='/images/dummy-card.png'
-                name='Campaign Title'
-                description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.'
-              />
+            <div className='mt-10 flex flex-wrap gap-5 gap-y-16'>
               <CampaignCard
                 image='/images/dummy-card.png'
                 name='Campaign Title'

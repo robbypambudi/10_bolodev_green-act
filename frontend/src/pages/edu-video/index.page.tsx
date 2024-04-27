@@ -28,7 +28,7 @@ const CrowdfundingSection = () => {
               </Typography>
             </div>
 
-            <div className='mt-10 flex flex-wrap justify-between gap-5 gap-y-16'>
+            <div className='mt-10 flex flex-wrap gap-5 gap-y-16'>
               <EduVideoCard
                 poin={100}
                 name='Video Title'

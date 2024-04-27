@@ -25,7 +25,15 @@ const EventPage = () => {
             </Typography>
           </div>
 
-          <div className='mt-10 flex flex-wrap justify-between gap-10 gap-y-16'>
+          <div className='mt-10 flex flex-wrap gap-10 gap-y-16'>
+            <EventCard
+              deadline='28 Apr 2024'
+              poin={100}
+              count_person='20/100'
+              name='Gowes to Kebun Binatang Surabaya'
+              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
+              image='/images/dummy-card.png'
+            />
             <EventCard
               deadline='28 Apr 2024'
               poin={100}

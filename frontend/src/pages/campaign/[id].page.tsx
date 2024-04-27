@@ -59,7 +59,7 @@ type CampaignDetail = {
   task: Task[];
 };
 
-export default withAuth(DetailCampaignPage, 'all');
+export default withAuth(DetailCampaignPage, 'optional');
 function DetailCampaignPage() {
   const router = useRouter();
 
@@ -206,7 +206,7 @@ function DetailCampaignPage() {
                       <TabsTrigger
                         key={tab.id}
                         value={tab.id}
-                        className='justify-start sm:justify-center'
+                        className='justify-center w-1/2'
                       >
                         {tab.label}
                       </TabsTrigger>

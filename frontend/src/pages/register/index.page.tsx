@@ -28,7 +28,6 @@ type RegisterForm = {
   password_confirmation: string;
 };
 
-
 export default withAuth(LoginPage, 'auth');
 function LoginPage() {
   const router = useRouter();
@@ -59,12 +58,13 @@ function LoginPage() {
           >
             <LoginHeader data-id='header-for-mobile' className='md:hidden' />
 
-            <div className='w-320px'>
+            <div className=''>
               <NextImage
                 src='/images/auth/hero.png'
                 alt='Login Illustration'
                 width={640}
                 height={640}
+                className='w-80 h-80 md:w-[640px] md:h-[640px]'
               />
             </div>
 
@@ -126,7 +126,7 @@ function LoginPage() {
                     leftIcon={ClipboardList}
                     isLoading={isLoading}
                   >
-                    Register
+                    Daftar
                   </Button>
 
                   <DevelopmentCard className='py-6'>

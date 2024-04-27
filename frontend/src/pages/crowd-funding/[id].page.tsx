@@ -90,7 +90,7 @@ export default function DetailCrowdfundingPage() {
                   Kebon Binatang Surabaya
                 </Typography>
               </div>
-              <Tabs className='space-y-4 mt-4' defaultValue='umum'>
+              <Tabs className='space-y-4 mt-4' defaultValue='cerita'>
                 <TabsList className='flex w-full flex-wrap justify-center text-start'>
                   {CROWDFUNDING_TABS.map((tab) => (
                     <TabsTrigger
