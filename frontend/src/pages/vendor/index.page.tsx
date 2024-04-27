@@ -28,7 +28,7 @@ type LoginForm = {
   password: string;
 };
 
-export default withVendorAuth(LoginVendorPage, 'all');
+export default withVendorAuth(LoginVendorPage, 'auth');
 function LoginVendorPage() {
   const router = useRouter();
   const { mutateAsync: login, isLoading } = useLoginMutation();

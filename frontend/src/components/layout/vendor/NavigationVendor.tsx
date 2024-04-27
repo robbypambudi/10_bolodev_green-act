@@ -6,6 +6,7 @@ import {
   LucideIcon,
   Minus,
   Plus,
+  Scan,
 } from 'lucide-react';
 import { useRouter } from 'next/router';
 import * as React from 'react';
@@ -47,6 +48,11 @@ const groupNavs: GroupedNavigation[] = [
         href: '/vendor/dashboard',
         icon: Home,
         exactMatch: true,
+      },
+      {
+        name: 'Scan Voucher',
+        href: '/vendor/dashboard/scan-voucher',
+        icon: Scan,
       },
     ],
   },

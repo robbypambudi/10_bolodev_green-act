@@ -102,7 +102,7 @@ export default function Header({ setSidebarOpen }: HeaderProps) {
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          onClick={logout}
+                          onClick={() => logout()}
                           data-cy='logout'
                           className={clsx(
                             active ? 'bg-gray-100' : '',

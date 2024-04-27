@@ -3,6 +3,7 @@
 import { formatLocaleDate } from "@/lib/date";
 
 import Alert from "@/components/alert/Alert";
+import withVendorAuth from "@/components/hoc/withVendorAuth";
 import DashboardVendorLayout from "@/components/layout/vendor/DashboardVendorLayout";
 import DistributionMap from "@/components/map/DistributionMap";
 import Seo from "@/components/Seo";
@@ -11,7 +12,8 @@ import Typography from "@/components/typography/Typography";
 
 import dummyMap from "@/constant/map";
 
-export default function DashboardVendorPage() {
+export default withVendorAuth(DashboardVendorPage, 'all');
+function DashboardVendorPage() {
   return (
     <DashboardVendorLayout>
 

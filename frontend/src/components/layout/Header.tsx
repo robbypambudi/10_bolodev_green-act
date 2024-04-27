@@ -14,6 +14,7 @@ import useAuthStore from '@/store/useAuthStore';
 
 export default function Header() {
   const isAuth = useAuthStore.useIsAuthenticated();
+  const user = useAuthStore.useUser();
   const logout = useAuthStore.useLogout();
 
   const [active, setActive] = useState('');
@@ -55,18 +56,16 @@ export default function Header() {
             </div>
 
             <div
-              className={`${
-                !toggle ? 'hidden' : 'flex'
-              } p-6 bg-slate-100 absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+              className={`${!toggle ? 'hidden' : 'flex'
+                } p-6 bg-slate-100 absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
             >
               <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
                 {navbarLink.map(({ href, label }) => (
                   <li key={`${href}${label}`}>
                     <UnstyledLink
                       href={href}
-                      className={`hover:text-gray-600 font-averta ${
-                        active === label ? 'text-white' : 'text-secondary'
-                      }`}
+                      className={`hover:text-gray-600 font-averta ${active === label ? 'text-white' : 'text-secondary'
+                        }`}
                       onClick={() => {
                         setToggle(!toggle);
                         setActive(label);
@@ -82,9 +81,17 @@ export default function Header() {
 
           {isAuth ? (
             <div className='flex items-center space-x-2'>
-              <ButtonLink href='/dashboard' className='border-none'>
-                Dashboard
-              </ButtonLink>
+              {
+                user?.token === 'vendor' ? (
+                  <ButtonLink href='/vendor/dashboard' className='border-none'>
+                    Dashboard
+                  </ButtonLink>
+                ) : (
+                  <ButtonLink href='/dashboard' className='border-none'>
+                    Dashboard
+                  </ButtonLink>
+                )
+              }
               <Button onClick={() => logout()} variant='outline'>
                 Keluar
               </Button>

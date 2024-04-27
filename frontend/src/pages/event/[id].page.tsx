@@ -153,27 +153,7 @@ export default function DetailEventPage() {
               </div>
             </div>
             <div>
-              <div className='p-4 mt-4'>
-                {data?.data.is_registered && (
-                  <RealTimeMap timeInterval={6000} />
-                )}
-                <Typography as='h3' variant='h3'>
-                  Peserta <span className='text-primary-500'>(120+)</span>
-                </Typography>
-                <div className='space-y-2 mt-4'>
-                  {USER_PARTICIPANTS.map((user) => (
-                    <AvatarCard
-                      key={user.id}
-                      name={user.name}
-                      imageUrl={user.imageUrl}
-                      particapateDate={formatLocaleDate(
-                        user.particapateDate,
-                        'FULL_DATE_WITH_DAY',
-                      )}
-                    />
-                  ))}
-                </div>
-              </div>
+
               {!data?.data.is_registered && (
                 <Button
                   className='mt-4 w-full border-none'
@@ -187,7 +167,16 @@ export default function DetailEventPage() {
                   Ikut Event
                 </Button>
               )}
-
+              <div className='p-4 mt-4'>
+                {data?.data.is_registered && (
+                  <>
+                    <Typography as='h3' variant='h3'>
+                      Realtime Map
+                    </Typography>
+                    <RealTimeMap timeInterval={6000} />
+                  </>
+                )}
+              </div>
               <div className='bg-gray-50 mt-4 h-[120px] p-4'>
                 <Typography as='h3' variant='h3'>
                   Sponsor
@@ -209,6 +198,25 @@ export default function DetailEventPage() {
                     width={60}
                     height={60}
                   />
+                </div>
+              </div>
+              <div className='p-4 mt-4'>
+
+                <Typography as='h3' variant='h3'>
+                  Peserta <span className='text-primary-500'>(120+)</span>
+                </Typography>
+                <div className='space-y-2 mt-4'>
+                  {USER_PARTICIPANTS.map((user) => (
+                    <AvatarCard
+                      key={user.id}
+                      name={user.name}
+                      imageUrl={user.imageUrl}
+                      particapateDate={formatLocaleDate(
+                        user.particapateDate,
+                        'FULL_DATE_WITH_DAY',
+                      )}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

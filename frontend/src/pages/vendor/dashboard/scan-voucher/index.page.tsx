@@ -1,11 +1,10 @@
-// import withAuth from '@/components/hoc/withAuth';
-import DashboardLayout from '@/components/layout/dashboard/DashboardLayout';
+import withVendorAuth from '@/components/hoc/withVendorAuth';
+import DashboardVendorLayout from '@/components/layout/vendor/DashboardVendorLayout';
 import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 import Typography from '@/components/typography/Typography';
 
-// export default withAuth(ScanVoucherPage, 'all');
-
+export default withVendorAuth(ScanVoucherPage, 'all');
 const HistoryCard = () => {
   return (
     <div className=''>
@@ -24,7 +23,7 @@ const HistoryCard = () => {
 
 function ScanVoucherPage() {
   return (
-    <DashboardLayout>
+    <DashboardVendorLayout>
       <Seo templateTitle='Dashboard Campaign' />
       <main className='dashboard-layout '>
         <Typography variant='j1' className='mt-8'>
@@ -59,8 +58,7 @@ function ScanVoucherPage() {
           </div>
         </section>
       </main>
-    </DashboardLayout>
+    </DashboardVendorLayout>
   );
 }
 
-export default ScanVoucherPage;
