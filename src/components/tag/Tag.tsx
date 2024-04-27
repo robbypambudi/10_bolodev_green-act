@@ -60,7 +60,7 @@ const Tag = React.forwardRef<HTMLDivElement, TagProps>(
           color === 'warning' && 'bg-yellow-100 text-yellow-700 ',
           color === 'success' && 'bg-green-100 text-green-700',
           //#endregion  //*======== Color ===========
-          'inline-flex items-center gap-1 rounded-full px-3 font-medium',
+          'inline-flex items-center gap-1 rounded-full px-3 font-medium font-averta',
           LeftIcon && 'pl-3',
           RightIcon && 'pr-3',
           className,

@@ -31,7 +31,11 @@ const EventCard = ({
         />
       </div>
       <div className='flex mt-4 gap-4'>
-        <Tag leftIcon={Clock} color='primary'>
+        <Tag
+          leftIcon={Clock}
+          color='DEFAULT'
+          className='text-[#4E46B4] bg-[#bfbaff]'
+        >
           {deadline}
         </Tag>
         <Tag leftIcon={Heart} color='secondary'>
@@ -44,7 +48,7 @@ const EventCard = ({
       <Typography as='h1' variant='h2' className='mt-4 text-gray-600'>
         {name}
       </Typography>
-      <Typography as='p' className='mt-2 text-gray-600 line-clamp-3'>
+      <Typography as='p' className='mt-2 text-gray-400 line-clamp-3'>
         {description}
       </Typography>
     </div>

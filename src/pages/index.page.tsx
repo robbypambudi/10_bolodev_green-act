@@ -11,6 +11,7 @@ import EventSection from '@/pages/section/event';
 import FeatureSection from '@/pages/section/feature';
 import HeroSection from '@/pages/section/hero';
 import VideoSection from '@/pages/section/video';
+import VoucherSection from '@/pages/section/voucher';
 
 export default function HomePage() {
   return (
@@ -21,6 +22,7 @@ export default function HomePage() {
           <Header />
           <HeroSection />
           <FeatureSection />
+          <VoucherSection />
           <CampaignSection />
           <CSRSection />
           <VideoSection />

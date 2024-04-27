@@ -1,7 +1,8 @@
-import { HeartIcon } from 'lucide-react';
+import { Clock, Heart } from 'lucide-react';
 import Image from 'next/image';
 
 import UnderlineLink from '@/components/links/UnderlineLink';
+import Tag from '@/components/tag/Tag';
 import Typography from '@/components/typography/Typography';
 
 const CampaignCard = ({
@@ -23,22 +24,22 @@ const CampaignCard = ({
           alt='project_image'
           className='w-full h-full object-cover '
         />
-
-        <div className='absolute inset-0 flex justify-start m-3 card-img_hover gap-1'>
-          <div className='bg-white text-secondary-400 h-10 px-5 rounded-3xl flex gap-2 justify-center items-center cursor-pointer'>
-            <HeartIcon size={20} fill='#F4AE5F' />
-            <Typography
-              as='p'
-              className='text-sm text-secondary-400 font-semibold'
-            >
-              100 poin
-            </Typography>
-          </div>
-        </div>
       </div>
 
       <div className='mt-5 px-5'>
-        <Typography as='h2' className='text-2xl font-semibold'>
+        <div className='flex gap-3'>
+          <Tag
+            leftIcon={Clock}
+            color='DEFAULT'
+            className='text-[#4E46B4] bg-[#bfbaff]'
+          >
+            Deadline
+          </Tag>
+          <Tag leftIcon={Heart} color='secondary'>
+            Poin
+          </Tag>
+        </div>
+        <Typography as='h2' className='text-2xl mt-4 font-semibold'>
           {name}
         </Typography>
         <Typography
@@ -48,7 +49,7 @@ const CampaignCard = ({
           {description}
         </Typography>
         <UnderlineLink
-          href='/'
+          href='/campaign/1'
           className='text-primary-400 mt-4 border-primary-400'
         >
           Lihat Detail
