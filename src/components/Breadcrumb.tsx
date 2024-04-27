@@ -18,6 +18,9 @@ const breadcrumbs = {
   '/event/[id]': 'Detail Event',
 
   'edu-video/[id]': 'Detail Edu Video',
+
+  '/crowd-funding': 'Browse Crowd Funding',
+  '/crowd-funding/[id]': 'Detail Crowd Funding',
 };
 type BreadcrumbProps = {
   crumbs: Array<keyof typeof breadcrumbs>;

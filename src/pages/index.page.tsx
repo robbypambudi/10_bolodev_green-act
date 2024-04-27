@@ -8,6 +8,7 @@ import Seo from '@/components/Seo';
 
 import CallUsSection from '@/pages/section/call-us';
 import CampaignSection from '@/pages/section/campaign';
+import CrowdfundingSection from '@/pages/section/crowd-funding';
 import CSRSection from '@/pages/section/csr';
 import EventSection from '@/pages/section/event';
 import FeatureSection from '@/pages/section/feature';
@@ -30,6 +31,7 @@ function HomePage() {
           <CSRSection />
           <VideoSection />
           <EventSection />
+          <CrowdfundingSection />
           <CallUsSection />
           <Footer />
         </section>
