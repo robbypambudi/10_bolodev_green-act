@@ -17,9 +17,8 @@ import ServerTable from '@/components/table/ServerTable';
 import Table from '@/components/table/Table';
 import Typography from '@/components/typography/Typography';
 
-import { User } from '@/pages/api/mock/users.api';
-
 import { ApiResponse, PaginatedApiResponse } from '@/types/api';
+import { User } from '@/types/entities/user';
 
 type UserFilter = {
   country: string[];
