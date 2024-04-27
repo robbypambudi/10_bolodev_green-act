@@ -7,7 +7,7 @@ import EventCard from '@/pages/section/components/card/event-card';
 
 const CampaignSection = () => {
   return (
-    <section className='py-20'>
+    <section className='py-10 md:py-20'>
       <div className='layout'>
         <div className='flex justify-between items-center'>
           <div className='flex flex-col'>
@@ -24,7 +24,7 @@ const CampaignSection = () => {
           </ButtonLink>
         </div>
 
-        <div className='flex mt-10 justify-between gap-10'>
+        <div className='flex flex-col md:flex-row mt-10 justify-between gap-10'>
           <EventCard
             deadline='28 Apr 2024'
             poin={100}

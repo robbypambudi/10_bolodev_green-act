@@ -7,23 +7,32 @@ import CampaignCard from '@/pages/section/components/card/campaign-card';
 
 const CampaignSection = () => {
   return (
-    <section className='bg-[#F0F2F5] py-20'>
+    <section className='bg-[#F0F2F5] py-10 md:py-20'>
       <div className='layout'>
         <div className='flex justify-between items-center'>
           <div className='flex flex-col'>
-            <Typography as='h1' className='text-4xl font-semibold font-averta'>
+            <Typography
+              as='h1'
+              className='text-2xl md:text-4xl font-semibold font-averta'
+            >
               Campaign
             </Typography>
-            <Typography as='p' className='text-typo-secondary mt-4'>
+            <Typography
+              as='p'
+              className='text-typo-secondary md:text-base text-sm mt-2 md:mt-4'
+            >
               Campaign penghijauan yang sedang berlangsung
             </Typography>
           </div>
-          <ButtonLink href='/campaign' className='border-none py-3'>
+          <ButtonLink
+            href='/campaign'
+            className='border-none py-1 md:py-3 md:text-base text-sm'
+          >
             Lihat Semua
           </ButtonLink>
         </div>
 
-        <div className='flex mt-10 justify-between'>
+        <div className='flex flex-col md:flex-row mt-10 gap-5 md:gap-0 justify-between'>
           <CampaignCard
             image='/images/dummy-card.png'
             name='Campaign Title'

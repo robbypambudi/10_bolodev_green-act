@@ -47,9 +47,9 @@ const List = ({ title, poin }: { title: string; poin: number }) => {
 
 const VideoSection = () => {
   return (
-    <section className='layout my-32 flex gap-10'>
+    <section className='layout py-10 md:py-32 flex md:flex-row flex-col gap-10'>
       {/* ====== SECTION KIRI ======= */}
-      <div className='w-3/5 h-full flex items-center justify-center relative rounded-2xl overflow-hidden'>
+      <div className='w-full md:w-3/5 h-full flex items-center justify-center relative rounded-2xl overflow-hidden'>
         <NextImage
           src='/images/dummy-card.png'
           alt='Hero Image'
@@ -65,11 +65,11 @@ const VideoSection = () => {
         </div>
       </div>
       {/* ====== SECTION KANAN ======= */}
-      <div className='w-2/5 flex flex-col items-start justify-center'>
-        <Typography as='h1' className='text-4xl font-semibold'>
+      <div className='w-full md:w-2/5 flex flex-col items-start justify-center'>
+        <Typography as='h1' className='text-2xl md:text-4xl font-semibold'>
           Hijaukan Bumi kita!
         </Typography>
-        <Typography as='p' className='text-lg mt-5 mb-10'>
+        <Typography as='p' className='text-base md:text-lg mt-5 mb-10'>
           Hijaukan Bumi Kita! Mulai sekarang, mari kita beraksi untuk
           menyelamatkan planet kita bersama-sama dengan:
         </Typography>

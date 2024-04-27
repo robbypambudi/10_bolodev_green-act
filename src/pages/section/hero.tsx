@@ -7,11 +7,14 @@ import Typography from '@/components/typography/Typography';
 const HeroSection = () => {
   return (
     <section className='layout my-5 flex rounded-lg bg-primary-50'>
-      <div className='flex flex-col p-8 h-[80vh] justify-center items-start w-3/5'>
-        <Typography as='h1' className='text-6xl font-semibold'>
+      <div className='flex flex-col p-8 h-[80vh] justify-center items-start w-full md:w-3/5'>
+        <Typography as='h1' className='text-4xl md:text-6xl font-semibold'>
           Be The Enviromental Hero!
         </Typography>
-        <Typography as='h1' className='text-6xl font-semibold text-primary-500'>
+        <Typography
+          as='h1'
+          className='text-4xl md:text-6xl font-semibold text-primary-500'
+        >
           Act Now!
         </Typography>
         <Typography as='p' className='text-lg mt-4'>
@@ -27,6 +30,7 @@ const HeroSection = () => {
           alt='Hero Image'
           width={700}
           height={700}
+          className='md:block hidden'
         />
       </div>
     </section>

@@ -23,7 +23,7 @@ const listData = [
 
 const List = ({ title, icon }: { title: string; icon: ReactElement }) => {
   return (
-    <div className='flex flex-col gap-5 items-center'>
+    <div className='flex md:flex-col flex-row gap-5 items-center'>
       <div className='flex items-center'>
         <span className='p-4 rounded-full bg-primary-100'>{icon}</span>
       </div>
@@ -39,28 +39,31 @@ const List = ({ title, icon }: { title: string; icon: ReactElement }) => {
 const CSRSection = () => {
   return (
     <section className='bg-primary-500 py-32'>
-      <div className='layout flex gap-10'>
-        <div className='w-2/3 flex flex-col items-start justify-center'>
+      <div className='layout flex md:flex-row flex-col gap-10'>
+        <div className='w-full md:w-2/3 flex flex-col items-start justify-center'>
           {/* ====== SECTION KIRI ======= */}
-          <Typography as='h1' className='text-7xl text-white font-semibold'>
+          <Typography
+            as='h1'
+            className='md:text-7xl text-4xl text-white font-semibold'
+          >
             Jalankan Program CSR Bersama{' '}
-            <Typography className='text-7xl text-black font-semibold italic'>
+            <Typography className='md:text-7xl text-4xl text-black font-semibold italic'>
               greenAct!
             </Typography>
           </Typography>
-          <div className='flex mt-14'>
+          <div className='flex md:flex-row flex-col mt-14 w-full'>
             {listData.map((item, index) => (
-              <div className='flex' key={index}>
+              <div className='flex md:flex-row flex-col' key={index}>
                 <List title={item.title} icon={item.icon} />
                 {index < 2 && (
-                  <div className='w-[0.5px] h-2/3 bg-gray-100 mx-20' />
+                  <div className='w-full md:w-[0.5px] h-[0.5px] md:h-2/3 bg-gray-100 mx-0 md:mx-20 my-5 md:my-0' />
                 )}
               </div>
             ))}
           </div>
         </div>
         {/* ====== SECTION KANAN ======= */}
-        <div className='w-1/3 bg-white rounded-xl flex items-center justify-center py-10'>
+        <div className='w-full md:w-1/3 bg-white rounded-xl flex items-center justify-center p-10'>
           <CSRForm />
         </div>
       </div>

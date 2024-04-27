@@ -40,17 +40,17 @@ const List = ({
   bgColor: string;
 }) => {
   return (
-    <div className='flex gap-10'>
-      <div className='flex items-center'>
+    <div className='flex gap-5 md:gap-10'>
+      <div className='flex items-start md:items-center'>
         <span className={`p-4 rounded-full ${bgColor}`}>{icon}</span>
       </div>
       <div className='flex flex-col'>
-        <Typography as='h2' className='text-2xl'>
+        <Typography as='h2' className='text-xl md:text-2xl'>
           {title}
         </Typography>
         <Typography
           as='p'
-          className='text-lg mt-2 font-light text-typo-secondary'
+          className='text-base md:text-lg mt-2 font-light text-typo-secondary'
         >
           {description}
         </Typography>
@@ -61,8 +61,10 @@ const List = ({
 
 const FeatureSection = () => {
   return (
-    <section className='layout my-32 flex gap-10'>
-      <div className='w-1/3 flex items-center justify-center'>
+    <section className='layout my-16 md:my-32 flex md:gap-10'>
+      {/* ====== SECTION KIRI ======= */}
+
+      <div className='w-0 md:w-1/3 flex items-center justify-center'>
         <NextImage
           src='/images/plant.png'
           alt='Hero Image'
@@ -70,16 +72,15 @@ const FeatureSection = () => {
           height={500}
         />
       </div>
-      <div className='w-2/3 flex flex-col items-start'>
-        {/* ====== SECTION KIRI ======= */}
-        <Typography as='h1' className='text-4xl font-semibold'>
+      {/* ====== SECTION KANAN ======= */}
+      <div className='w-full md:w-2/3 flex flex-col items-start'>
+        <Typography as='h1' className='text-2xl md:text-4xl font-semibold'>
           Hijaukan Bumi kita!
         </Typography>
-        <Typography as='p' className='text-lg mt-5 mb-10'>
+        <Typography as='p' className='text-base md:text-lg mt-5 mb-10'>
           Hijaukan Bumi Kita! Mulai sekarang, mari kita beraksi untuk
           menyelamatkan planet kita bersama-sama dengan:
         </Typography>
-        {/* ====== SECTION KANAN ======= */}
         {listData.map((item, index) => (
           <div key={index}>
             <List
