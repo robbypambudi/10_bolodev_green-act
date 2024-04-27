@@ -54,6 +54,11 @@ const groupNavs: GroupedNavigation[] = [
         href: '/vendor/dashboard/scan-voucher',
         icon: Scan,
       },
+      {
+        name: 'Campaign Approval',
+        href: '/vendor/dashboard/campaign',
+        icon: Scan,
+      },
     ],
   },
 ];

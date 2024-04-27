@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         // $this->call(VoucherSeeder::class);
+        $this->call(UserSeeder::class);
         $this->call(CampaignSeeder::class);
         $this->call(EventSeeder::class);
         $this->call(CampaignTaskSeeder::class);
-        $this->call(UserSeeder::class);
     }
 }

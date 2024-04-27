@@ -17,6 +17,8 @@ class Campaigns extends Model
         'reward_points',
         'participants',
         'category',
+
+        'user_id'
     ];
 
     protected $table = 'campaigns';
@@ -24,4 +26,9 @@ class Campaigns extends Model
     protected $casts = [
         'category' => 'array',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -1,18 +1,14 @@
 import * as React from 'react';
 
-import PrimaryLink from '@/components/links/PrimaryLink';
 
 export const BANNER_CONTENT: (() => React.ReactNode)[] = [
-  () => (
-    <span>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit.{' '}
-      <PrimaryLink href='#'>Baca panduan</PrimaryLink>
-    </span>
-  ),
+  // (git
   () =>
-    'Quia magnam ipsam consequuntur quam eligendi et corrupti blanditiis voluptatum, nisi beatae placeat, quis libero nihil voluptatibus ad. Quasi animi accusantium alias, dolorem ducimus consequuntur!',
+    'Jangan lewatkan Green Cleanup Day untuk bersama-sama membersihkan lingkungan!',
   () =>
-    'Doloribus tenetur rem laboriosam ad voluptatibus magni repellat quos tempora iusto commodi',
+    'Bumi adalah rumah kita bersama. Mari kita jaga dan lestarikan untuk generasi mendatang!',
+  () =>
+    'Ayo, bersama-sama kita lindungi dan rawat lingkungan kita. Setiap tindakan kita, besar atau kecil, membuat perbedaan!',
 ];
 
 export const BANNER_DELAY_MS = 5000;

@@ -14,27 +14,24 @@ class CampaignTaskSeeder extends Seeder
     {
         $campaigns = [
             [
-                'title' => 'Campaign 1',
-                'description' => 'Description 1',
+                'title' => 'Mangrove Planting',
+                'description' => 'For this campaign, we will plant mangroves in the surabaya river. The event will take place on 28th April 2024.',
                 'image' => 'image1.jpg',
-
                 'campaign_id' => '1',
-                
             ],
             [
-                'title' => 'Campaign 2',
-                'description' => 'Description 2',
+                'title' => 'Surabaya Zoo Cleaning',
+                'description' => 'For this campaign, we will clean the surabaya zoo. The event will take place on 29th April 2024.',
                 'image' => 'image2.jpg',
 
                 'campaign_id' => '1',
             ],
             [
-                'title' => 'Campaign 3',
-                'description' => 'Description 3',
+                'title' => 'Beach Cleaning',
+                'description' => 'For this campaign, we will clean the beach in surabaya. The event will take place on 30th April 2024.',
                 'image' => 'image3.jpg',
-
                 'campaign_id' => '1',
-                
+
             ],
         ];
 

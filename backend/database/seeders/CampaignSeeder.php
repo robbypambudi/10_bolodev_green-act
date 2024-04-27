@@ -25,6 +25,7 @@ class CampaignSeeder extends Seeder
                 'reward_points' => 80,
                 'participants' => 1000,
                 'category' => json_encode(['category3', 'category6']),
+                'user_id' => 1,
             ],
             [
                 'title' => 'Riverside Revival: Penanaman Mangrove di Tepi Sungai',
@@ -34,6 +35,7 @@ class CampaignSeeder extends Seeder
                 'reward_points' => 200,
                 'participants' => 20,
                 'category' => json_encode(['category2', 'category3']),
+                'user_id' => 1,
             ],
             [
                 'title' => '',
@@ -48,6 +50,7 @@ class CampaignSeeder extends Seeder
                 'reward_points' => 300,
                 'participants' => 30,
                 'category' => json_encode(['category1', 'category3']),
+                'user_id' => 1,
             ],
             [
                 'title' => 'Clean Energy Expo: Pameran Energi Bersih dan Ramah Lingkungan',
@@ -68,6 +71,7 @@ class CampaignSeeder extends Seeder
                 'reward_points' => 200,
                 'participants' => 100,
                 'category' => json_encode(['category3', 'category4']),
+                'user_id' => 1,
             ],
             [
                 'title' => 'Forest Guardians: Aksi Penanaman Pohon di Hutan Terdegradasi',
@@ -87,6 +91,7 @@ class CampaignSeeder extends Seeder
                 'reward_points' => 150,
                 'participants' => 80,
                 'category' => json_encode(['category3', 'category4']),
+                'user_id' => 1,
             ],
             [
                 'title' => 'Forest Guardians: Aksi Penanaman Pohon di Hutan Terdegradasi',
@@ -106,12 +111,12 @@ class CampaignSeeder extends Seeder
                 'reward_points' => 150,
                 'participants' => 80,
                 'category' => json_encode(['category3', 'category4']),
+                'user_id' => 1,
             ],
         ];
 
         foreach ($campaigns as $campaign) {
             \App\Models\Campaigns::create($campaign);
         }
-        
     }
 }

@@ -22,8 +22,12 @@ return new class extends Migration
 
             $table->decimal('reward_points', 10, 2)->default(0);
             $table->decimal('participants', 10, 2)->default(0);
-            
+
             $table->json('category');
+
+            $table->unsignedBigInteger('user_id')->nullable();
+
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });

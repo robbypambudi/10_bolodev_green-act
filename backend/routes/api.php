@@ -6,6 +6,7 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VendorController;
 
 Route::group([
     'middleware' => 'api',
@@ -63,6 +64,11 @@ Route::group([
     Route::get('/campaigns', [UserController::class, 'campaigns'])->middleware('auth:api')->name('user.campaigns');
     Route::get('/events', [UserController::class, 'events'])->middleware('auth:api')->name('user.events');
     Route::get('/{id}', [UserController::class, 'detail'])->middleware('auth:api')->name('user.detail');
+});
 
-    // Activity
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'vendor'
+], function ($router) {
+    Route::get('/campaigns', [VendorController::class, 'campaigns'])->middleware('auth:api')->name('vendor.campaigns');
 });
