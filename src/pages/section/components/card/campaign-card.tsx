@@ -13,7 +13,6 @@ const CampaignCard = ({
   description: string;
   image: string;
 }) => {
-  // console.log(name == "Rajoongan");
   return (
     <div className='bg-white rounded-2xl sm:w-[360px] w-full overflow-hidden hover:shadow-lg duration-300'>
       <div className='relative w-full h-[230px]'>
