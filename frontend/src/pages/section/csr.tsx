@@ -47,9 +47,9 @@ const CSRSection = () => {
             className='md:text-7xl text-4xl text-white font-semibold'
           >
             Jalankan Program CSR Bersama{' '}
-            <Typography className='md:text-7xl text-4xl text-black font-semibold italic'>
+            <span className='md:text-7xl text-4xl text-black font-semibold italic'>
               greenAct!
-            </Typography>
+            </span>
           </Typography>
           <div className='flex md:flex-row flex-col mt-14 w-full'>
             {listData.map((item, index) => (

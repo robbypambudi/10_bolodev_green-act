@@ -106,6 +106,12 @@ function LoginPage() {
                     }}
                     placeholder='Masukkan Konfirmasi Password'
                   />
+
+                  <Typography className='mt-4'>
+                    Sudah Memiliki Akun?{' '}
+                    <PrimaryLink href='/login'>Masuk</PrimaryLink>
+                  </Typography>
+
                   <Button
                     type='submit'
                     className='!mt-6 w-full'

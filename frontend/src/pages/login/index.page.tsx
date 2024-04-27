@@ -89,6 +89,12 @@ function LoginPage() {
                     }}
                     placeholder='Masukkan Password'
                   />
+
+                  <Typography className='mt-4'>
+                    Belum Memiliki Akun?{' '}
+                    <PrimaryLink href='/register'>Daftar</PrimaryLink>
+                  </Typography>
+
                   <Button
                     type='submit'
                     className='!mt-6 w-full'
