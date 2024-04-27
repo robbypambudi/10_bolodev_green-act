@@ -27,8 +27,8 @@ type LoginForm = {
   password: string;
 };
 
-export default withVendorAuth(LoginPage, 'all');
-function LoginPage() {
+export default withVendorAuth(LoginVendorPage, 'all');
+function LoginVendorPage() {
   const { mutateAsync: login, isLoading } = useLoginMutation();
 
   const methods = useForm<LoginForm>();

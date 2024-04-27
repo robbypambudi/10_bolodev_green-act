@@ -1,7 +1,10 @@
-import { User } from '@/types/entities/user';
 import { createSelectorHooks } from 'auto-zustand-selectors-hook';
 import produce from 'immer';
-import create from 'zustand';
+import { create } from 'zustand';
+
+import { removeToken, setToken } from '@/lib/cookie';
+
+import { User } from '@/types/entities/user';
 
 
 type AuthStoreType = {
@@ -18,7 +21,7 @@ const useAuthStoreBase = create<AuthStoreType>((set) => ({
   isAuthenticated: false,
   isLoading: true,
   login: (user) => {
-    localStorage.setItem('token', user.token);
+    setToken(user.token);
     set(
       produce<AuthStoreType>((state) => {
         state.isAuthenticated = true;
@@ -27,7 +30,7 @@ const useAuthStoreBase = create<AuthStoreType>((set) => ({
     );
   },
   logout: () => {
-    localStorage.removeItem('token');
+    removeToken();
     set(
       produce<AuthStoreType>((state) => {
         state.isAuthenticated = false;

@@ -1,5 +1,6 @@
-import { JWT_TOKEN_KEY } from '@/constant/common';
 import Cookies from 'universal-cookie';
+
+import { JWT_TOKEN_KEY } from '@/constant/common';
 
 const cookies = new Cookies();
 

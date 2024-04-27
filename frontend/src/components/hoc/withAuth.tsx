@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import * as React from 'react';
 
 import api from '@/lib/axios';
-import { getFromLocalStorage } from '@/lib/helper';
+import { getToken, removeToken } from '@/lib/cookie';
 
 import useAuthStore from '@/store/useAuthStore';
 
@@ -64,7 +64,7 @@ export default function withAuth<T extends WithAuthProps = WithAuthProps>(
     //#endregion  //*======== STORE ===========
 
     const checkAuth = React.useCallback(() => {
-      const token = getFromLocalStorage('token');
+      const token = getToken();
       if (!token) {
         isAuthenticated && logout();
         stopLoading();
@@ -79,7 +79,7 @@ export default function withAuth<T extends WithAuthProps = WithAuthProps>(
             token: token + '',
           });
         } catch (err) {
-          localStorage.removeItem('token');
+          removeToken();
         } finally {
           stopLoading();
         }
@@ -105,7 +105,7 @@ export default function withAuth<T extends WithAuthProps = WithAuthProps>(
       if (!isLoading) {
         if (isAuthenticated) {
           // Prevent authenticated user from accessing auth or other role pages
-          if (routeRole === 'auth') {
+          if (routeRole === 'auth' && user?.type !== 'user') {
             if (query?.redirect) {
               router.replace(query.redirect as string);
             } else {
