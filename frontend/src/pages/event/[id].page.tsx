@@ -167,7 +167,7 @@ function DetailEventPage() {
               </div>
 
               {
-                !data?.data.is_registered && (
+                data?.data.is_registered && (
                   <Button
                     className='mt-4 w-full border-none'
                     variant='primary'
@@ -182,7 +182,7 @@ function DetailEventPage() {
                 )
               }
               {
-                !data?.data.is_registered && (
+                data?.data.is_registered && (
                   <Button
                     className='mt-4 w-full border-none'
                     variant='secondary'

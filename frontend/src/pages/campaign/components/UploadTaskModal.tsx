@@ -8,6 +8,8 @@ import DropzoneInput from '@/components/forms/DropzoneInput';
 import SearchableSelectInput from '@/components/forms/SearchableSelectInput';
 import Modal from '@/components/modal/Modal';
 
+import { useCampaignsTaskToast } from '@/pages/campaign/hooks/mutation';
+
 import { FileWithPreview } from '@/types/dropzone';
 
 type UploadTaskForm = {
@@ -22,13 +24,16 @@ type ModalReturnType = {
 export default function UploadTaskModal({
   children,
   task,
+  refetch,
 }: {
   children: (props: ModalReturnType) => JSX.Element;
   task: {
     campaign_id: string;
     title: string;
   }[];
+  refetch: () => void;
 }) {
+  const { mutateAsync: addTask } = useCampaignsTaskToast();
   const methods = useForm<UploadTaskForm>();
 
   const { handleSubmit } = methods;
@@ -40,6 +45,16 @@ export default function UploadTaskModal({
 
   const onSubmit = (data: UploadTaskForm) => {
     logger(data);
+    addTask({
+      campaign_task_id: data.campaign_task_id,
+    })
+      .then(() => {
+        setOpen(false);
+        refetch();
+      })
+      .catch((e) => {
+        logger('error', e);
+      });
   };
 
   return (

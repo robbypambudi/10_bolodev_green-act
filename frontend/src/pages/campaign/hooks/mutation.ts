@@ -21,3 +21,22 @@ export function useCampaignsEventToast() {
     ...result,
   };
 }
+
+type CampaignsTaskBody = {
+  campaign_task_id: string;
+};
+
+export function useCampaignsTaskToast() {
+  const result = useMutationToast<void, CampaignsTaskBody>(
+    useMutation((data) => {
+      return api.post(`/campaigns/task/${data.campaign_task_id}`);
+    }),
+    {
+      success: 'Berhasil mengupload aksi',
+    },
+  );
+
+  return {
+    ...result,
+  };
+}

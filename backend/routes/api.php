@@ -64,7 +64,5 @@ Route::group([
     Route::get('/events', [UserController::class, 'events'])->middleware('auth:api')->name('user.events');
     Route::get('/{id}', [UserController::class, 'detail'])->middleware('auth:api')->name('user.detail');
 
-    // Campaign
-
     // Activity
 });

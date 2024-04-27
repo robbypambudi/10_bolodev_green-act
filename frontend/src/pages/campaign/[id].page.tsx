@@ -36,11 +36,26 @@ type KetentuanTabsType = {
 };
 
 type Task = {
+  id: string;
   campaign_id: string;
   title: string;
   description: string;
   image: string;
 };
+
+type UserTask = {
+  campaign_task_id: number;
+  user_id: number;
+  status: 'pending' | 'approved' | 'rejected';
+  proof: string;
+
+  campaign_task: {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+  };
+}
 
 type CampaignDetail = {
   campaign: {
@@ -57,6 +72,7 @@ type CampaignDetail = {
   is_registered: boolean;
 
   task: Task[];
+  user_task: UserTask[];
 };
 
 export default withAuth(DetailCampaignPage, 'optional');
@@ -65,18 +81,6 @@ function DetailCampaignPage() {
 
   const { id } = router.query as { id: string };
 
-  const KETENTUAN_TABS: KetentuanTabsType[] = [
-    {
-      id: 'umum',
-      label: 'Aksi 1',
-      content: <KetentuanUmum />,
-    },
-    {
-      id: 'khusus',
-      label: 'Aksi 2',
-      content: <KetentuanUmum />,
-    },
-  ];
 
   const { mutateAsync: applyCampaign } = useCampaignsEventToast();
 
@@ -97,11 +101,11 @@ function DetailCampaignPage() {
 
   const data = queryData?.data;
 
+
   if (id === undefined) {
     return (
       <Layout>
         <Seo templateTitle='Detail Campaign' />
-
         <main>
           <Header />
           <section className='layout'>
@@ -114,6 +118,15 @@ function DetailCampaignPage() {
       </Layout>
     );
   }
+  const KETENTUAN_TABS: KetentuanTabsType[] = data?.task?.map((task) => ({
+    id: String(task.id),
+    label: `Aksi ${task.id}`,
+    content: (
+      <KetentuanUmum description={
+        task.description
+      } />
+    ),
+  })) || [];
 
   return (
     <Layout>
@@ -200,13 +213,13 @@ function DetailCampaignPage() {
                 <Typography as='h2' variant='h2'>
                   Aksi
                 </Typography>
-                <Tabs className='space-y-4 mt-4' defaultValue='umum'>
+                <Tabs className='space-y-4 mt-4' defaultValue='1'>
                   <TabsList className='flex w-full flex-wrap justify-center text-start'>
                     {KETENTUAN_TABS.map((tab) => (
                       <TabsTrigger
                         key={tab.id}
                         value={tab.id}
-                        className='justify-center w-1/2'
+                        className='justify-center'
                       >
                         {tab.label}
                       </TabsTrigger>
@@ -230,9 +243,33 @@ function DetailCampaignPage() {
                   width={320}
                   height={320}
                 />
+                {data?.user_task && (
+                  <div className='mt-4'>
+                    <hr className='my-4' />
+                    <Typography as='h3' variant='h3'>
+                      Progres Tugas
+                    </Typography>
+                    {data?.user_task?.length === 0 ? (
+                      data?.user_task?.map((task, index) => (
+                        <div key={index} className='mt-2'>
+                          <Typography as='h3' variant='h3'>
+                            {task.campaign_task.title}
+                          </Typography>
+                          <Typography >
+                            Progress : {task.status === 'pending' ? 'Menunggu Verifikasi' : task.status === 'approved' ? 'Diterima' : 'Ditolak'}
+                          </Typography>
+                        </div>
+                      ))
+                    ) : (
+                      <Typography as='p'>Belum ada progres</Typography>
+                    )}
+                  </div>
+                )
+                }
                 {data?.is_registered && (
                   <div className='mt-4'>
-                    <UploadTaskModal task={data.task || []}>
+
+                    <UploadTaskModal task={data.task || []} refetch={refetch}>
                       {({ openModal }) => (
                         <Button onClick={openModal} className='mt-4 w-full'>
                           Upload Tugas
@@ -312,13 +349,15 @@ function DetailCampaignPage() {
   );
 }
 
-function KetentuanUmum() {
+function KetentuanUmum({
+  description,
+}: {
+  description?: string;
+}) {
   return (
     <div>
       <Typography as='p'>
-        Sed ipsum morbi est eu. Commodo elementum eget nulla non magnis
-        malesuada pharetra ut. Feugiat in tempor amet magna sem tellus maecenas
-        convallis etiam.
+        {description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget sapien vitae massa rhoncus lacinia. Nullam at erat nunc. Duis sit amet velit ac nunc ultricies aliquam. Ut auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc. Ut auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.'}
       </Typography>
     </div>
   );

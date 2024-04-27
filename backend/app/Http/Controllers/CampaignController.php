@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Campaigns;
 use App\Models\CampaignTask;
+use App\Models\CampaignTaskUser;
 use App\Models\UserCampaigns;
-use Illuminate\Auth\Events\Validated;
 
 class CampaignController extends Controller
 {
-    
+
     public function index()
     {
         // Get 10 Latest Campaigns
@@ -29,6 +28,7 @@ class CampaignController extends Controller
     {
         // Get Campaigns by ID
         $campaign = Campaigns::find($id);
+        $task = CampaignTask::where('campaign_id', $id)->get();
 
         // if not logged in, return false
         if (!auth()->user()) {
@@ -36,6 +36,7 @@ class CampaignController extends Controller
                 'code' => 200,
                 'message' => 'Success get campaign',
                 'data' => [
+                    'task' => $task,
                     'campaign' => $campaign,
                 ]
             ]);
@@ -45,7 +46,7 @@ class CampaignController extends Controller
             ->where('campaign_id', $id)
             ->first();
 
-        $task = CampaignTask::where('campaign_id', $id)->get();
+        $userTask = CampaignTaskUser::where('user_id', auth()->user()->id)->with('campaignTask')->get();
 
         return response()->json([
             'code' => 200,
@@ -53,7 +54,8 @@ class CampaignController extends Controller
             'data' => [
                 'campaign' => $campaign,
                 'is_registered' => $campaignUser ? true : false,
-                'task' => $task
+                'task' => $task,
+                'user_task' => $userTask
             ]
         ]);
     }
@@ -86,7 +88,40 @@ class CampaignController extends Controller
         ]);
     }
 
-    public function task($campaign_task_id){
+    public function task($campaign_task_id)
+    {
+        $campaignTask = CampaignTask::find($campaign_task_id);
 
+        if (!$campaignTask) {
+            return response()->json([
+                'code' => 400,
+                'message' => 'Task not found',
+            ], 400);
+        }
+
+        $campaignTaskUser = CampaignTaskUser::where('user_id', auth()->user()->id)
+            ->where('campaign_task_id', $campaign_task_id)
+            ->first();
+
+        if ($campaignTaskUser) {
+            return response()->json([
+                'code' => 400,
+                'message' => 'You already submitted this task',
+            ], 400);
+        }
+
+        $campaignTaskUser = new CampaignTaskUser;
+        $campaignTaskUser->user_id = auth()->user()->id;
+        $campaignTaskUser->campaign_task_id = $campaign_task_id;
+        $campaignTaskUser->status = 'pending';
+        $campaignTaskUser->save();
+
+        return response()->json([
+            'code' => 200,
+            'message' => 'Success submit task',
+            'data' => [
+                'task' => $campaignTaskUser
+            ]
+        ]);
     }
 }

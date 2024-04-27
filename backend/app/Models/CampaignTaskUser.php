@@ -17,8 +17,15 @@ class CampaignTaskUser extends Model
         'proof',
     ];
 
+    protected $table = 'campaign_task_user';
+
     public function campaignTask()
     {
         return $this->belongsTo(CampaignTask::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
