@@ -56,4 +56,14 @@ class UserController extends Controller
             'data' => $campaigns
         ]);
     }
+
+    public function events()
+    {
+        $events = UserEvents::where('user_id', auth()->user()->id)->with('event')->get();
+        return response()->json([
+            'code' => 200,
+            'message' => 'Success get user events',
+            'data' => $events
+        ]);
+    }
 }

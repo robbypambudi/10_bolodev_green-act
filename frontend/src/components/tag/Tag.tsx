@@ -16,7 +16,7 @@ const TAG_COLOR = [
   'warning',
   'aqua',
 ] as const;
-type TagColor = (typeof TAG_COLOR)[number];
+export type TagColor = (typeof TAG_COLOR)[number];
 
 type TagProps = {
   children: React.ReactNode;
