@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import withAuth from '@/components/hoc/withAuth';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
@@ -13,7 +14,8 @@ import HeroSection from '@/pages/section/hero';
 import VideoSection from '@/pages/section/video';
 import VoucherSection from '@/pages/section/voucher';
 
-export default function HomePage() {
+export default withAuth(HomePage, 'optional');
+function HomePage() {
   return (
     <Layout>
       <Seo />

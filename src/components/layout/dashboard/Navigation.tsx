@@ -1,29 +1,25 @@
 import { Disclosure } from '@headlessui/react';
 import clsx from 'clsx';
 import {
+  Award,
   ChevronDown,
+  Coins,
   Home,
   LucideIcon,
   Minus,
   Plus,
-  User as UserIcon,
 } from 'lucide-react';
-import { Contact2 } from 'lucide-react';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
 import IconButton from '@/components/buttons/IconButton';
-import { isRole } from '@/components/hoc/withAuth';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Typography from '@/components/typography/Typography';
 
-import useAuthStore from '@/store/useAuthStore';
-
 import { Permission } from '@/types/entities/permission';
 import { Role } from '@/types/entities/role';
-import { User } from '@/types/entities/user';
 
 export type Navigation = {
   name: string;
@@ -54,13 +50,21 @@ const groupNavs: GroupedNavigation[] = [
         icon: Home,
         exactMatch: true,
       },
+      {
+        name: 'Point & Voucher',
+        href: '/dashboard/point-voucher',
+        icon: Coins,
+      },
+      {
+        name: 'Campaign',
+        href: '/dashboard/campaign',
+        icon: Award,
+      },
     ],
   },
 ];
 
 export default function Navigation({ className, ...rest }: NavigationProps) {
-  const user = useAuthStore.useUser();
-
   return (
     <nav
       className={clsxm([

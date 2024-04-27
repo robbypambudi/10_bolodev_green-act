@@ -1,15 +1,15 @@
+import { LoaderIcon } from 'lucide-react';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
+import api from '@/lib/axios';
 import { getFromLocalStorage } from '@/lib/helper';
 
+import useAuthStore from '@/store/useAuthStore';
 
 import { ApiResponse } from '@/types/api';
-import { User } from '@/types/entities/user';
-import { LoaderIcon } from 'lucide-react';
-import useAuthStore from '@/store/useAuthStore';
-import api from '@/lib/axios';
 import { ROLE, Role } from '@/types/entities/role';
+import { User } from '@/types/entities/user';
 
 export interface WithAuthProps {
   user: User;
@@ -44,13 +44,11 @@ type RouteRole = (typeof ROUTE_ROLES)[number];
  * @see https://github.com/mxthevs/nextjs-auth/blob/main/src/components/withAuth.tsx
  */
 
-
-export const isRole = (p: Role): p is Role =>
-  ROLE.includes(p as Role);
+export const isRole = (p: Role): p is Role => ROLE.includes(p as Role);
 
 export default function withAuth<T extends WithAuthProps = WithAuthProps>(
   Component: React.ComponentType<T>,
-  routeRole: RouteRole
+  routeRole: RouteRole,
 ) {
   const ComponentWithAuth = (props: Omit<T, keyof WithAuthProps>) => {
     const router = useRouter();
@@ -119,7 +117,7 @@ export default function withAuth<T extends WithAuthProps = WithAuthProps>(
           if (routeRole !== 'auth' && routeRole !== 'optional') {
             router.replace(
               `${LOGIN_ROUTE}?redirect=${router.asPath}`,
-              `${LOGIN_ROUTE}`
+              `${LOGIN_ROUTE}`,
             );
           }
         }

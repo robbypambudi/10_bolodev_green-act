@@ -1,5 +1,6 @@
 import { Heart, Users } from 'lucide-react';
 
+import withAuth from '@/components/hoc/withAuth';
 import DashboardLayout from '@/components/layout/dashboard/DashboardLayout';
 import Seo from '@/components/Seo';
 import Typography from '@/components/typography/Typography';
@@ -7,7 +8,8 @@ import Typography from '@/components/typography/Typography';
 import PointSummaryCard from '@/pages/dashboard/component/PointSummaryCard';
 import EventCard from '@/pages/section/components/card/event-card';
 
-export default function DashboardPage() {
+export default withAuth(DashboardPage, 'all');
+function DashboardPage() {
   return (
     <DashboardLayout>
       <Seo templateTitle='Dashboard' />

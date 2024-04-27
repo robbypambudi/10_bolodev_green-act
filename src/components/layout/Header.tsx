@@ -4,10 +4,14 @@ import * as React from 'react';
 
 import { navbarLink } from '@/lib/content/navbar';
 
+import Button from '@/components/buttons/Button';
 import ButtonLink from '@/components/links/ButtonLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
+import useAuthStore from '@/store/useAuthStore';
+
 export default function Header() {
+  const isAuth = useAuthStore.useIsAuthenticated();
   return (
     <header className='sticky top-0 z-50 bg-white'>
       <div className='layout flex h-20 items-center justify-between'>
@@ -32,9 +36,18 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <ButtonLink href='/login' className='border-none'>
-            Login
-          </ButtonLink>
+          {isAuth ? (
+            <div className='flex items-center space-x-2'>
+              <ButtonLink href='/dashboard' className='border-none'>
+                Dashboard
+              </ButtonLink>
+              <Button className='border-none'>Keluar</Button>
+            </div>
+          ) : (
+            <ButtonLink href='/login' className='border-none' variant='warning'>
+              Login
+            </ButtonLink>
+          )}
         </nav>
       </div>
     </header>
