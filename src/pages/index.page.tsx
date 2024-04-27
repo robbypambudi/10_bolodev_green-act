@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
+import CallUsSection from '@/pages/section/call-us';
 import CampaignSection from '@/pages/section/campaign';
 import CSRSection from '@/pages/section/csr';
 import EventSection from '@/pages/section/event';
@@ -29,6 +30,7 @@ function HomePage() {
           <CSRSection />
           <VideoSection />
           <EventSection />
+          <CallUsSection />
           <Footer />
         </section>
       </main>
