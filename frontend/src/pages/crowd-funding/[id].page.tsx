@@ -4,6 +4,7 @@ import { formatLocaleDate } from '@/lib/date';
 import Breadcrumb from '@/components/Breadcrumb';
 import Button from '@/components/buttons/Button';
 import AvatarCard from '@/components/cards/AvatarCard';
+import withAuth from '@/components/hoc/withAuth';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import NextImage from '@/components/NextImage';
@@ -58,7 +59,8 @@ const ProgressNominal = ({
   );
 };
 
-export default function DetailCrowdfundingPage() {
+export default withAuth(DetailCrowdfundingPage, 'optional');
+function DetailCrowdfundingPage() {
   const KETENTUAN_TABS: KetentuanTabsType[] = [
     {
       id: 'umum',

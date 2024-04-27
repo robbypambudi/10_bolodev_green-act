@@ -3,6 +3,7 @@ import React from 'react';
 import YouTube from 'react-youtube';
 
 import Breadcrumb from '@/components/Breadcrumb';
+import withAuth from '@/components/hoc/withAuth';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
@@ -163,4 +164,4 @@ const EduVideoDetail = () => {
   );
 };
 
-export default EduVideoDetail;
+export default withAuth(EduVideoDetail, 'optional');

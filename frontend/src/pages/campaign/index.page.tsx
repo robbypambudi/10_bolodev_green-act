@@ -1,4 +1,5 @@
 import Breadcrumb from '@/components/Breadcrumb';
+import withAuth from '@/components/hoc/withAuth';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
@@ -130,4 +131,4 @@ const CampaignPage = () => {
   );
 };
 
-export default CampaignPage;
+export default withAuth(CampaignPage, 'optional');

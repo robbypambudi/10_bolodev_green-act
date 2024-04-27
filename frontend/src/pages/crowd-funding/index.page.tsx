@@ -1,4 +1,5 @@
 import Breadcrumb from '@/components/Breadcrumb';
+import withAuth from '@/components/hoc/withAuth';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
@@ -99,7 +100,7 @@ const crowdfundings = [
   },
 ];
 
-const CrowdfundingSection = () => {
+const CrowdFundingPage = () => {
   return (
     <Layout>
       <Seo templateTitle='Browse Crowdfunding' />
@@ -141,4 +142,4 @@ const CrowdfundingSection = () => {
   );
 };
 
-export default CrowdfundingSection;
+export default withAuth(CrowdFundingPage, 'optional');
