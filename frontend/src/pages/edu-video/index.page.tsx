@@ -6,7 +6,7 @@ import Typography from '@/components/typography/Typography';
 
 import EduVideoCard from '@/pages/section/components/card/edu-video-card';
 
-const CrowdfundingSection = () => {
+const EduVideoPage = () => {
   return (
     <Layout>
       <Seo templateTitle='Browse Video' />
@@ -91,4 +91,4 @@ const CrowdfundingSection = () => {
   );
 };
 
-export default CrowdfundingSection;
+export default EduVideoPage;

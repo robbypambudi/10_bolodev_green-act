@@ -24,7 +24,7 @@ export const footerData: FooterDataType[] = [
       },
       {
         name: 'Edu Video',
-        href: '/edu-video/1',
+        href: '/edu-video',
       },
     ],
   },

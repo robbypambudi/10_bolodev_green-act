@@ -6,6 +6,89 @@ import Typography from '@/components/typography/Typography';
 
 import CampaignCard from '@/pages/section/components/card/campaign-card';
 
+const campaigns = [
+  {
+    name: 'Jaga Hutan Lindungi Hutan',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.',
+    image: '/images/dummy-card.png',
+    point: 100,
+    deadline: '28 Apr 2024',
+  },
+  {
+    name: 'Mencabut Rumput',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.',
+    image: '/images/dummy-card.png',
+    point: 100,
+    deadline: '28 Apr 2024',
+  },
+  {
+    name: 'Menanam Pohon',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.',
+    image: '/images/dummy-card.png',
+    point: 100,
+    deadline: '28 Apr 2024',
+  },
+  {
+    name: 'Say No to Plastic',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.',
+    image: '/images/dummy-card.png',
+    point: 100,
+    deadline: '28 Apr 2024',
+  },
+  {
+    name: 'Mencabut Rumput',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.',
+    image: '/images/dummy-card.png',
+    point: 100,
+    deadline: '28 Apr 2024',
+  },
+  {
+    name: 'Menanam Pohon',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.',
+    image: '/images/dummy-card.png',
+    point: 100,
+    deadline: '28 Apr 2024',
+  },
+  {
+    name: 'Say No to Plastic',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.',
+    image: '/images/dummy-card.png',
+    point: 100,
+    deadline: '28 Apr 2024',
+  },
+  {
+    name: 'Mencabut Rumput',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.',
+    image: '/images/dummy-card.png',
+    point: 100,
+    deadline: '28 Apr 2024',
+  },
+  {
+    name: 'Menanam Pohon',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.',
+    image: '/images/dummy-card.png',
+    point: 100,
+    deadline: '28 Apr 2024',
+  },
+  {
+    name: 'Say No to Plastic',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.',
+    image: '/images/dummy-card.png',
+    point: 100,
+    deadline: '28 Apr 2024',
+  },
+];
+
 const CampaignPage = () => {
   return (
     <Layout>
@@ -29,41 +112,16 @@ const CampaignPage = () => {
             </div>
 
             <div className='mt-10 flex flex-wrap gap-5 gap-y-16'>
-              <CampaignCard
-                image='/images/dummy-card.png'
-                name='Campaign Title'
-                description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.'
-              />
-              <CampaignCard
-                image='/images/dummy-card.png'
-                name='Campaign Title'
-                description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.'
-              />
-              <CampaignCard
-                image='/images/dummy-card.png'
-                name='Campaign Title'
-                description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.'
-              />
-              <CampaignCard
-                image='/images/dummy-card.png'
-                name='Campaign Title'
-                description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.'
-              />
-              <CampaignCard
-                image='/images/dummy-card.png'
-                name='Campaign Title'
-                description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.'
-              />
-              <CampaignCard
-                image='/images/dummy-card.png'
-                name='Campaign Title'
-                description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.'
-              />
-              <CampaignCard
-                image='/images/dummy-card.png'
-                name='Campaign Title'
-                description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos molestias odit ipsa consequuntur similique, minima pariatur est beatae esse aspernatur quia accusamus facilis. Ut minima aut ratione, voluptates recusandae iste.'
-              />
+              {campaigns.map((campaign, index) => (
+                <CampaignCard
+                  key={index}
+                  name={campaign.name}
+                  description={campaign.description}
+                  image={campaign.image}
+                  poin={campaign.point}
+                  deadline={campaign.deadline}
+                />
+              ))}
             </div>
           </div>
         </div>

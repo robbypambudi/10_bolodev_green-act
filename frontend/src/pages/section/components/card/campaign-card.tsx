@@ -9,10 +9,14 @@ const CampaignCard = ({
   name,
   description,
   image,
+  poin,
+  deadline,
 }: {
   name: string;
   description: string;
   image: string;
+  poin: number;
+  deadline: string;
 }) => {
   return (
     <div className='bg-white rounded-2xl sm:w-[360px] w-full overflow-hidden hover:shadow-lg duration-300'>
@@ -33,10 +37,10 @@ const CampaignCard = ({
             color='DEFAULT'
             className='text-[#4E46B4] bg-[#bfbaff]'
           >
-            Deadline
+            {deadline}
           </Tag>
           <Tag leftIcon={Heart} color='secondary'>
-            Poin
+            {poin} Poin
           </Tag>
         </div>
         <Typography as='h2' className='text-2xl mt-4 font-semibold'>

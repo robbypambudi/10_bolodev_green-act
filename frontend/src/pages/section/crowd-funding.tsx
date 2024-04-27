@@ -5,6 +5,36 @@ import Typography from '@/components/typography/Typography';
 
 import CrowdfundingCard from '@/pages/section/components/card/crowdfunding-card';
 
+const crowdfundings = [
+  {
+    name: 'Lindungi Alam, Hidupkan Harapan',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
+    image: '/images/crowdfunding/crowdfunding-1.png',
+    deadline: '28 Apr 2024',
+    currentNominal: 4230000,
+    total: 15000000,
+  },
+  {
+    name: 'Perlindungan Hutan Mangrove di Surabaya',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
+    image: '/images/crowdfunding/crowdfunding-2.png',
+    deadline: '28 Apr 2024',
+    currentNominal: 4230000,
+    total: 15000000,
+  },
+  {
+    name: 'Perlindungan Satwa Terancam Punah',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
+    image: '/images/crowdfunding/crowdfunding-1.png',
+    deadline: '28 Apr 2024',
+    currentNominal: 4230000,
+    total: 15000000,
+  },
+];
+
 const CrowdfundingSection = () => {
   return (
     <section className='py-10 md:py-20'>
@@ -25,24 +55,17 @@ const CrowdfundingSection = () => {
         </div>
 
         <div className='flex flex-col md:flex-row mt-10 justify-between gap-10'>
-          <CrowdfundingCard
-            deadline='28 Apr 2024'
-            name='Gowes to Kebun Binatang Surabaya'
-            description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
-            image='/images/dummy-card.png'
-          />
-          <CrowdfundingCard
-            deadline='28 Apr 2024'
-            name='Gowes to Kebun Binatang Surabaya'
-            description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
-            image='/images/dummy-card.png'
-          />
-          <CrowdfundingCard
-            deadline='28 Apr 2024'
-            name='Gowes to Kebun Binatang Surabaya'
-            description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
-            image='/images/dummy-card.png'
-          />
+          {crowdfundings.map((crowdfunding, index) => (
+            <CrowdfundingCard
+              key={index}
+              name={crowdfunding.name}
+              description={crowdfunding.description}
+              image={crowdfunding.image}
+              deadline={crowdfunding.deadline}
+              currentNominal={crowdfunding.currentNominal}
+              total={crowdfunding.total}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -1,19 +1,60 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { formatToRupiah } from '@/lib/currency';
+
+import ProgressBar from '@/components/ProgressBar';
 import Tag from '@/components/tag/Tag';
 import Typography from '@/components/typography/Typography';
+
+const ProgressNominal = ({
+  currentNominal,
+  total,
+}: {
+  currentNominal: number;
+  total: number;
+}) => {
+  return (
+    <div className='flex'>
+      <Typography
+        as='h2'
+        variant='s1'
+        className='mt-4 text-2xl font-semibold text-secondary-500'
+      >
+        {formatToRupiah(currentNominal)}
+      </Typography>
+      <Typography
+        as='h2'
+        variant='s1'
+        className='mt-4 text-2xl text-typo-tertiary mx-2'
+      >
+        /
+      </Typography>
+      <Typography
+        as='h2'
+        variant='s1'
+        className='mt-4 text-2xl text-typo-tertiary'
+      >
+        {formatToRupiah(total)}
+      </Typography>
+    </div>
+  );
+};
 
 const CrowdfundingCard = ({
   deadline,
   name,
   description,
   image,
+  currentNominal,
+  total,
 }: {
   deadline: string;
   name: string;
   description: string;
   image: string;
+  currentNominal: number;
+  total: number;
 }) => {
   return (
     <Link href='/crowd-funding/1'>
@@ -33,32 +74,11 @@ const CrowdfundingCard = ({
         <Typography as='h1' variant='h2' className='mt-4 text-gray-600'>
           {name}
         </Typography>
-        <Typography as='p' className='mt-2 text-gray-400 line-clamp-3'>
+        <Typography as='p' className='mt-2 mb-4 text-gray-400 line-clamp-3'>
           {description}
         </Typography>
-        <div className='flex'>
-          <Typography
-            as='h2'
-            variant='s1'
-            className='mt-4 text-2xl font-semibold text-secondary-500'
-          >
-            Rp423.000
-          </Typography>
-          <Typography
-            as='h2'
-            variant='s1'
-            className='mt-4 text-2xl text-typo-tertiary mx-2'
-          >
-            /
-          </Typography>
-          <Typography
-            as='h2'
-            variant='s1'
-            className='mt-4 text-2xl text-typo-tertiary'
-          >
-            Rp15.000.000
-          </Typography>
-        </div>
+        <ProgressBar progress={(currentNominal / total) * 100} />
+        <ProgressNominal currentNominal={currentNominal} total={total} />
       </div>
     </Link>
   );

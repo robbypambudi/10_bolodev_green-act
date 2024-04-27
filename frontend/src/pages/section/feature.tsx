@@ -22,7 +22,7 @@ const listData = [
   {
     title: 'Event',
     description:
-      'Berkolaborasi dengan berbagai perusahaan untuk menyelenggarakan tantangan, memotivasi peserta untuk mengambil tindakan nyata dalam mendukung lingkungan hidup.',
+      'Kegiatan berkelompok dari beberapa individu untuk melaksanakan aksi bersama dalam menyelesaikan tantangan lingkungan hidup. Layanan ini juga dapat berkolaborasi dengan perusahaan dalam pelaksanaannya.',
     bgColor: 'bg-[#bfbaff]',
     icon: <Heart size={24} className='text-[#4E46B4]' />,
   },

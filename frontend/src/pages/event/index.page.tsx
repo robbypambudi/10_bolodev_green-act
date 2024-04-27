@@ -6,6 +6,72 @@ import Typography from '@/components/typography/Typography';
 
 import EventCard from '@/pages/section/components/card/event-card';
 
+const events = [
+  {
+    name: 'Gowes to Kebun Binatang Surabaya',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
+    image: '/images/dummy-event.png',
+    poin: 100,
+    deadline: '28 Apr 2024',
+    count_person: '20/100',
+  },
+  {
+    name: 'Gowes to Kebun Binatang Surabaya',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
+    image: '/images/dummy-event.png',
+    poin: 100,
+    deadline: '28 Apr 2024',
+    count_person: '20/100',
+  },
+  {
+    name: 'Gowes to Kebun Binatang Surabaya',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
+    image: '/images/dummy-event.png',
+    poin: 100,
+    deadline: '28 Apr 2024',
+    count_person: '20/100',
+  },
+  {
+    name: 'Gowes to Kebun Binatang Surabaya',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
+    image: '/images/dummy-event.png',
+    poin: 100,
+    deadline: '28 Apr 2024',
+    count_person: '20/100',
+  },
+  {
+    name: 'Gowes to Kebun Binatang Surabaya',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
+    image: '/images/dummy-event.png',
+    poin: 100,
+    deadline: '28 Apr 2024',
+    count_person: '20/100',
+  },
+  {
+    name: 'Gowes to Kebun Binatang Surabaya',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
+    image: '/images/dummy-event.png',
+    poin: 100,
+    deadline: '28 Apr 2024',
+    count_person: '20/100',
+  },
+  {
+    name: 'Gowes to Kebun Binatang Surabaya',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.',
+    image: '/images/dummy-event.png',
+    poin: 100,
+    deadline: '28 Apr 2024',
+    count_person: '20/100',
+  },
+];
+
 const EventPage = () => {
   return (
     <Layout>
@@ -26,70 +92,17 @@ const EventPage = () => {
           </div>
 
           <div className='mt-10 flex flex-wrap gap-10 gap-y-16'>
-            <EventCard
-              deadline='28 Apr 2024'
-              poin={100}
-              count_person='20/100'
-              name='Gowes to Kebun Binatang Surabaya'
-              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
-              image='/images/dummy-card.png'
-            />
-            <EventCard
-              deadline='28 Apr 2024'
-              poin={100}
-              count_person='20/100'
-              name='Gowes to Kebun Binatang Surabaya'
-              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
-              image='/images/dummy-card.png'
-            />
-            <EventCard
-              deadline='28 Apr 2024'
-              poin={100}
-              count_person='20/100'
-              name='Gowes to Kebun Binatang Surabaya'
-              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
-              image='/images/dummy-card.png'
-            />
-            <EventCard
-              deadline='28 Apr 2024'
-              poin={100}
-              count_person='20/100'
-              name='Gowes to Kebun Binatang Surabaya'
-              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
-              image='/images/dummy-card.png'
-            />
-            <EventCard
-              deadline='28 Apr 2024'
-              poin={100}
-              count_person='20/100'
-              name='Gowes to Kebun Binatang Surabaya'
-              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
-              image='/images/dummy-card.png'
-            />
-            <EventCard
-              deadline='28 Apr 2024'
-              poin={100}
-              count_person='20/100'
-              name='Gowes to Kebun Binatang Surabaya'
-              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
-              image='/images/dummy-card.png'
-            />
-            <EventCard
-              deadline='28 Apr 2024'
-              poin={100}
-              count_person='20/100'
-              name='Gowes to Kebun Binatang Surabaya'
-              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
-              image='/images/dummy-card.png'
-            />
-            <EventCard
-              deadline='28 Apr 2024'
-              poin={100}
-              count_person='20/100'
-              name='Gowes to Kebun Binatang Surabaya'
-              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque voluptates sint deleniti at repellendus assumenda atque fuga natus exercitationem temporibus eveniet repudiandae modi culpa obcaecati, quos nesciunt dolorem odit.'
-              image='/images/dummy-card.png'
-            />
+            {events.map((event, index) => (
+              <EventCard
+                key={index}
+                name={event.name}
+                description={event.description}
+                image={event.image}
+                poin={event.poin}
+                deadline={event.deadline}
+                count_person={event.count_person}
+              />
+            ))}
           </div>
         </div>
       </main>

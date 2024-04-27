@@ -81,10 +81,10 @@ const opts = {
   },
 };
 
-const ECoursePage = () => {
+const EduVideoDetail = () => {
   return (
     <Layout>
-      <Seo templateTitle='Browse Edu Video' />
+      <Seo templateTitle='Edu Video Detail' />
 
       <main>
         <Header />
@@ -163,4 +163,4 @@ const ECoursePage = () => {
   );
 };
 
-export default ECoursePage;
+export default EduVideoDetail;
