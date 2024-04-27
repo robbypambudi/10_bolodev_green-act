@@ -1,11 +1,11 @@
+import { Home } from 'lucide-react';
 import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
+import IconButton from '@/components/buttons/IconButton';
 import PrimaryLink from '@/components/links/PrimaryLink';
 import Typography from '@/components/typography/Typography';
-import { Home } from 'lucide-react';
-import IconButton from '@/components/buttons/IconButton';
 
 const breadcrumbs = {
   '/': 'Landing Page',
@@ -16,6 +16,8 @@ const breadcrumbs = {
 
   '/event': 'Browse Event',
   '/event/[id]': 'Detail Event',
+
+  'edu-video/[id]': 'Detail Edu Video',
 };
 type BreadcrumbProps = {
   crumbs: Array<keyof typeof breadcrumbs>;

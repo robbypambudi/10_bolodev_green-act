@@ -1,7 +1,7 @@
 import { HeartIcon, Play } from 'lucide-react';
 import React from 'react';
 
-import Button from '@/components/buttons/Button';
+import ButtonLink from '@/components/links/ButtonLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import NextImage from '@/components/NextImage';
 import Typography from '@/components/typography/Typography';
@@ -38,7 +38,9 @@ const List = ({ title, poin }: { title: string; poin: number }) => {
           {title}
         </Typography>
       </div>
-      <Button className='border-none py-2'>Tonton Video</Button>
+      <ButtonLink href='edu-video' className='border-none py-2'>
+        Tonton Video
+      </ButtonLink>
     </div>
   );
 };
@@ -79,7 +81,7 @@ const VideoSection = () => {
         ))}
 
         <UnstyledLink
-          href='/'
+          href='edu-video/1'
           className='text-base text-primary-500 hover:text-primary-600 duration-150 w-full cursor-pointer text-center'
         >
           Lihat Semua Video

@@ -1,5 +1,5 @@
 export const navbarLink = [
-  { href: '/ecourse', label: 'E-Course' },
+  { href: 'edu-video/1', label: 'Edu Video' },
   { href: '/campaign', label: 'Campaign' },
   { href: '/event', label: 'Event' },
 ];
