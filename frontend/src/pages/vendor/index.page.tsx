@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { ClipboardList } from 'lucide-react';
+import { useRouter } from 'next/router';
 import { FormProvider, useForm } from 'react-hook-form';
 
 import clsxm from '@/lib/clsxm';
@@ -29,6 +30,7 @@ type LoginForm = {
 
 export default withVendorAuth(LoginVendorPage, 'all');
 function LoginVendorPage() {
+  const router = useRouter();
   const { mutateAsync: login, isLoading } = useLoginMutation();
 
   const methods = useForm<LoginForm>();
@@ -38,6 +40,8 @@ function LoginVendorPage() {
   const onSubmit = async (data: LoginForm) => {
     login(data).catch((error) => {
       logger('error', error);
+    }).then(() => {
+      router.push('/vendor/dashboard');
     });
   };
 

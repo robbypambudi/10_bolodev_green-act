@@ -3,21 +3,21 @@ import { useState } from 'react';
 import clsxm from '@/lib/clsxm';
 
 import BaseDialog from '@/components/dialog/BaseDialog';
-import DesktopNavigation from '@/components/layout/dashboard/DesktopNavigation';
 import Header from '@/components/layout/dashboard/Header';
 import MobileNavigation from '@/components/layout/dashboard/MobileNavigation';
+import DesktopVendorNavigation from '@/components/layout/vendor/DesktopVendorNavigation';
 
 import useDialogStore from '@/store/useDialogStore';
 
-type DashboardLayoutProps = {
+type DashboardVendorLayoutProps = {
   children?: React.ReactNode;
   className?: string;
 };
 
-export default function DashboardLayout({
+export default function DashboardVendorLayout({
   children,
   className,
-}: DashboardLayoutProps) {
+}: DashboardVendorLayoutProps) {
   //#region  //*=========== Store ===========
   const open = useDialogStore.useOpen();
   const state = useDialogStore.useState();
@@ -35,7 +35,7 @@ export default function DashboardLayout({
       />
 
       {/* Static sidebar for desktop */}
-      <DesktopNavigation />
+      <DesktopVendorNavigation />
 
       <div className='flex flex-1 flex-col md:pl-64'>
         <Header setSidebarOpen={setSidebarOpen} />

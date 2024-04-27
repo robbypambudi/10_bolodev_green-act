@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CampaignSeeder::class);
         $this->call(EventSeeder::class);
         $this->call(CampaignTaskSeeder::class);
-
-
+        $this->call(UserSeeder::class);
     }
 }

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import L from 'leaflet';
 import { Lock } from 'lucide-react';
 import * as React from 'react';
-import { MapContainer } from 'react-leaflet';
+import { CircleMarker, MapContainer, Tooltip } from 'react-leaflet';
 import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
 
 import 'leaflet/dist/leaflet.css';
@@ -11,10 +11,12 @@ import clsxm from '@/lib/clsxm';
 
 import { MapFixedMarker } from '@/components/map/components/MapFixedMarker';
 import { googleMapsLoaderConf } from '@/components/map/helper';
+import ZoomButton from '@/components/map/ZoomButton';
 import Typography from '@/components/typography/Typography';
 
 import { DEFAULT_COORDINATE } from '@/constant/common';
-import ZoomButton from '@/components/map/ZoomButton';
+
+import { VisitorMap } from '@/types/entities/map';
 
 type BaseMapProps = {
   mapRef: React.RefObject<L.Map>;
@@ -26,6 +28,8 @@ type BaseMapProps = {
   withLockOverlay?: boolean;
 
   mapOptions?: React.ComponentPropsWithoutRef<typeof MapContainer>;
+
+  visitor?: VisitorMap[];
 } & React.ComponentPropsWithoutRef<'div'>;
 
 const FALLBACK_COORDINATE: [number, number] = [
@@ -43,6 +47,7 @@ export default function BaseMap({
   withMapFixedMarker = false,
   withLockOverlay = true,
   mapOptions,
+  visitor,
   ...rest
 }: BaseMapProps) {
   return (
@@ -60,6 +65,17 @@ export default function BaseMap({
       >
         <ReactLeafletGoogleLayer googleMapsLoaderConf={googleMapsLoaderConf} />
         {withMapFixedMarker && <MapFixedMarker />}
+        {visitor && visitor.map((v, index) =>
+          <CircleMarker center={v.center} radius={v.radius} key={index} pathOptions={v.pathOptions}>
+            <Tooltip className='bg-white' direction='top' offset={[0, -10]}>
+              <Typography variant='b3'>
+                {v.tooltip}
+              </Typography>
+            </Tooltip>
+
+          </CircleMarker>
+        )}
+
         {children}
       </MapContainer>
 
