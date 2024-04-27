@@ -9,6 +9,7 @@ import { User } from '@/types/entities/user';
 import { LoaderIcon } from 'lucide-react';
 import useAuthStore from '@/store/useAuthStore';
 import api from '@/lib/axios';
+import { ROLE, Role } from '@/types/entities/role';
 
 export interface WithAuthProps {
   user: User;
@@ -42,6 +43,11 @@ type RouteRole = (typeof ROUTE_ROLES)[number];
  * @see https://react-typescript-cheatsheet.netlify.app/docs/hoc/full_example/
  * @see https://github.com/mxthevs/nextjs-auth/blob/main/src/components/withAuth.tsx
  */
+
+
+export const isRole = (p: Role): p is Role =>
+  ROLE.includes(p as Role);
+
 export default function withAuth<T extends WithAuthProps = WithAuthProps>(
   Component: React.ComponentType<T>,
   routeRole: RouteRole
