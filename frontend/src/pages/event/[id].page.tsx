@@ -9,6 +9,7 @@ import { formatLocaleDate } from '@/lib/date';
 import Breadcrumb from '@/components/Breadcrumb';
 import Button from '@/components/buttons/Button';
 import AvatarCard from '@/components/cards/AvatarCard';
+import withAuth from '@/components/hoc/withAuth';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
@@ -36,8 +37,8 @@ type EventDetail = {
   };
   is_registered: boolean;
 };
-
-export default function DetailEventPage() {
+export default withAuth(DetailEventPage, 'optional');
+function DetailEventPage() {
   const router = useRouter();
   const { id } = router.query as { id: string };
 
@@ -154,6 +155,51 @@ export default function DetailEventPage() {
             </div>
             <div>
 
+              <div className='p-4 mt-4'>
+                {data?.data.is_registered && (
+                  <>
+                    <Typography as='h3' variant='h3'>
+                      Realtime Map
+                    </Typography>
+                    <RealTimeMap timeInterval={6000} />
+                  </>
+                )}
+              </div>
+
+              {
+                !data?.data.is_registered && (
+                  <Button
+                    className='mt-4 w-full border-none'
+                    variant='primary'
+                    onClick={() => {
+                      applyEvent({ event_id: id }).catch(() => {
+                        router.push('/login');
+                      });
+                    }}
+                  >
+                    Hadir Event ?
+                  </Button>
+                )
+              }
+              {
+                !data?.data.is_registered && (
+                  <Button
+                    className='mt-4 w-full border-none'
+                    variant='secondary'
+                    onClick={() => {
+                      applyEvent({ event_id: id }).catch(() => {
+                        router.push('/login');
+                      });
+                    }}
+                  >
+                    Selesai Event ?
+                  </Button>
+                )
+              }
+              <div>
+
+              </div>
+
               {!data?.data.is_registered && (
                 <Button
                   className='mt-4 w-full border-none'
@@ -167,16 +213,6 @@ export default function DetailEventPage() {
                   Ikut Event
                 </Button>
               )}
-              <div className='p-4 mt-4'>
-                {data?.data.is_registered && (
-                  <>
-                    <Typography as='h3' variant='h3'>
-                      Realtime Map
-                    </Typography>
-                    <RealTimeMap timeInterval={6000} />
-                  </>
-                )}
-              </div>
               <div className='bg-gray-50 mt-4 h-[120px] p-4'>
                 <Typography as='h3' variant='h3'>
                   Sponsor
