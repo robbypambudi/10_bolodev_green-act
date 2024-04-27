@@ -1,36 +1,78 @@
+import { useQuery } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 import { Clock, Heart, UsersRound } from 'lucide-react';
+import { useRouter } from 'next/router';
+import queryString from 'query-string';
 
 import { formatLocaleDate } from '@/lib/date';
 
 import Breadcrumb from '@/components/Breadcrumb';
+import Button from '@/components/buttons/Button';
 import AvatarCard from '@/components/cards/AvatarCard';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
+import ButtonLink from '@/components/links/ButtonLink';
+import RealTimeMap from '@/components/map/RealTimeMap';
 import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 import Tag from '@/components/tag/Tag';
 import Typography from '@/components/typography/Typography';
-import ButtonLink from '@/components/links/ButtonLink';
 
-type KetentuanTabsType = {
-  id: string;
-  label: string;
-  content: React.ReactNode;
+import { useApplyEventToast } from '@/pages/event/hooks/mutation';
+
+import { ApiError, ApiResponse } from '@/types/api';
+
+type EventDetail = {
+  events: {
+    id: string;
+    title: string;
+    description: string;
+    date: string;
+    time: string;
+    point: number;
+    participants: number;
+    sponsor: string[];
+    image: string;
+  };
+  is_registered: boolean;
 };
 
 export default function DetailEventPage() {
-  const KETENTUAN_TABS: KetentuanTabsType[] = [
+  const router = useRouter();
+  const { id } = router.query as { id: string };
+
+  const { mutateAsync: applyEvent } = useApplyEventToast();
+  //#region  //*=========== Fetch Data ===========
+  const url = queryString.stringifyUrl(
     {
-      id: 'umum',
-      label: 'Aksi 1',
-      content: <KetentuanUmum />,
+      url: `/events/${id}`,
     },
     {
-      id: 'khusus',
-      label: 'Aksi 2',
-      content: <KetentuanUmum />,
+      arrayFormat: 'comma',
     },
-  ];
+  );
+  const { data } = useQuery<ApiResponse<EventDetail>, AxiosError<ApiError>>([
+    url,
+  ]);
+  //#endregion  //*======== Fetch Data ===========
+
+  if (id === undefined) {
+    return (
+      <Layout>
+        <Seo templateTitle='Detail Event' />
+        <main>
+          <Header />
+          <section className='layout'>
+            <Typography as='h1' variant='h1'>
+              Event Not Found
+            </Typography>
+            <ButtonLink href='/event'>Kembali ke Event</ButtonLink>
+          </section>
+        </main>
+      </Layout>
+    );
+  }
+
   return (
     <Layout>
       <Seo templateTitle='Detail Event' />
@@ -112,6 +154,9 @@ export default function DetailEventPage() {
             </div>
             <div>
               <div className='p-4 mt-4'>
+                {data?.data.is_registered && (
+                  <RealTimeMap timeInterval={6000} />
+                )}
                 <Typography as='h3' variant='h3'>
                   Peserta <span className='text-primary-500'>(120+)</span>
                 </Typography>
@@ -129,13 +174,19 @@ export default function DetailEventPage() {
                   ))}
                 </div>
               </div>
-              <ButtonLink
-                href='/'
-                className='mt-4 w-full border-none'
-                variant='primary'
-              >
-                Ikut Event
-              </ButtonLink>
+              {!data?.data.is_registered && (
+                <Button
+                  className='mt-4 w-full border-none'
+                  variant='primary'
+                  onClick={() => {
+                    applyEvent({ event_id: id }).catch(() => {
+                      router.push('/login');
+                    });
+                  }}
+                >
+                  Ikut Event
+                </Button>
+              )}
 
               <div className='bg-gray-50 mt-4 h-[120px] p-4'>
                 <Typography as='h3' variant='h3'>
@@ -165,18 +216,6 @@ export default function DetailEventPage() {
         </section>
       </main>
     </Layout>
-  );
-}
-
-function KetentuanUmum() {
-  return (
-    <div>
-      <Typography as='p'>
-        Sed ipsum morbi est eu. Commodo elementum eget nulla non magnis
-        malesuada pharetra ut. Feugiat in tempor amet magna sem tellus maecenas
-        convallis etiam.
-      </Typography>
-    </div>
   );
 }
 
