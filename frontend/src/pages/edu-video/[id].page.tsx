@@ -1,11 +1,11 @@
-import { HeartIcon, Play } from 'lucide-react';
+import { HeartIcon } from 'lucide-react';
 import React from 'react';
+import YouTube from 'react-youtube';
 
 import Breadcrumb from '@/components/Breadcrumb';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
-import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 import Typography from '@/components/typography/Typography';
 
@@ -65,11 +65,20 @@ const List = ({ title, poin }: { title: string; poin: number }) => {
           {title}
         </Typography>
       </div>
-      <ButtonLink href='1' className='border-none py-2'>
-        Tonton Video
+      <ButtonLink href='1' className='bg-white text-black py-2'>
+        Lihat Video
       </ButtonLink>
     </div>
   );
+};
+
+const opts = {
+  height: '550',
+  width: '1000',
+  playerVars: {
+    // https://developers.google.com/youtube/player_parameters
+    autoplay: 1,
+  },
 };
 
 const ECoursePage = () => {
@@ -89,19 +98,7 @@ const ECoursePage = () => {
             {/* ====== SECTION KIRI ======= */}
             <div className='flex flex-col w-full md:w-8/12 gap-8'>
               <div className='flex items-center justify-center relative rounded-2xl overflow-hidden'>
-                <NextImage
-                  src='/images/dummy-card.png'
-                  alt='Hero Image'
-                  width={1200}
-                  height={1200}
-                  className='w-full h-full object-contain'
-                />
-                <span className='rounded-full p-4 absolute z-10 bg-typo-divider cursor-pointer'>
-                  <Play size={24} className='text-primary-400' />
-                </span>
-                <div className='absolute inset-0 flex items-center justify-center bg-black opacity-50'>
-                  {/* overlay content */}
-                </div>
+                <YouTube videoId='htaPGUSkrPc' opts={opts} />
               </div>
 
               <Typography as='h1' variant='j1'>

@@ -1,9 +1,9 @@
-import { HeartIcon, Play } from 'lucide-react';
+import { HeartIcon } from 'lucide-react';
 import React from 'react';
+import YouTube from 'react-youtube';
 
 import ButtonLink from '@/components/links/ButtonLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
-import NextImage from '@/components/NextImage';
 import Typography from '@/components/typography/Typography';
 
 const listData = [
@@ -20,6 +20,15 @@ const listData = [
     poin: 100,
   },
 ];
+
+const opts = {
+  height: '550',
+  width: '900',
+  playerVars: {
+    // https://developers.google.com/youtube/player_parameters
+    autoplay: 1,
+  },
+};
 
 const List = ({ title, poin }: { title: string; poin: number }) => {
   return (
@@ -38,8 +47,8 @@ const List = ({ title, poin }: { title: string; poin: number }) => {
           {title}
         </Typography>
       </div>
-      <ButtonLink href='edu-video/1' className='border-none py-2'>
-        Tonton Video
+      <ButtonLink href='edu-video/1' className='bg-white text-black py-2'>
+        Lihat Video
       </ButtonLink>
     </div>
   );
@@ -50,19 +59,7 @@ const VideoSection = () => {
     <section className='layout py-10 md:py-32 flex md:flex-row flex-col gap-10'>
       {/* ====== SECTION KIRI ======= */}
       <div className='w-full md:w-3/5 h-full flex items-center justify-center relative rounded-2xl overflow-hidden'>
-        <NextImage
-          src='/images/dummy-card.png'
-          alt='Hero Image'
-          width={1200}
-          height={1200}
-          className='w-full h-full object-contain'
-        />
-        <span className='rounded-full p-4 absolute z-10 bg-typo-divider cursor-pointer'>
-          <Play size={24} className='text-primary-400' />
-        </span>
-        <div className='absolute inset-0 flex items-center justify-center bg-black opacity-50'>
-          {/* overlay content */}
-        </div>
+        <YouTube videoId='htaPGUSkrPc' opts={opts} />
       </div>
       {/* ====== SECTION KANAN ======= */}
       <div className='w-full md:w-2/5 flex flex-col items-start justify-center'>

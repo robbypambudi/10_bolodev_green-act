@@ -1,4 +1,4 @@
-import { Heart, Play } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import Link from 'next/link';
 
 import NextImage from '@/components/NextImage';
@@ -25,11 +25,11 @@ const EduVideoCard = ({
             alt='Hero Image'
             width={1200}
             height={1200}
-            className='w-full h-full object-contain'
+            className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-300'
           />
-          <span className='rounded-full p-4 absolute z-10 bg-typo-divider cursor-pointer'>
+          {/* <span className='rounded-full p-4 absolute z-10 bg-typo-divider cursor-pointer'>
             <Play size={24} className='text-primary-400' />
-          </span>
+          </span> */}
           <div className='absolute inset-0 flex items-center justify-center bg-black opacity-50'>
             {/* overlay content */}
           </div>
