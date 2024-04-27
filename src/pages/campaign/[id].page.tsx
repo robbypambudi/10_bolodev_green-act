@@ -1,4 +1,8 @@
+import { useQuery } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 import { Heart, Timer } from 'lucide-react';
+import { useRouter } from 'next/router';
+import queryString from 'query-string';
 
 import { formatLocaleDate } from '@/lib/date';
 
@@ -7,6 +11,7 @@ import Button from '@/components/buttons/Button';
 import AvatarCard from '@/components/cards/AvatarCard';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
+import ButtonLink from '@/components/links/ButtonLink';
 import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 import {
@@ -18,13 +23,37 @@ import {
 import Tag from '@/components/tag/Tag';
 import Typography from '@/components/typography/Typography';
 
+import UploadTaskModal from '@/pages/campaign/components/UploadTaskModal';
+import { useCampaignsEventToast } from '@/pages/campaign/hooks/mutation';
+
+import { ApiError, ApiResponse } from '@/types/api';
+
 type KetentuanTabsType = {
   id: string;
   label: string;
   content: React.ReactNode;
 };
 
+type CampaignDetail = {
+  campaign: {
+    id: string;
+    title: string;
+    description: string;
+    date: string;
+    time: string;
+    point: number;
+    participants: number;
+    sponsor: string[];
+    image: string;
+  };
+  is_registered: boolean;
+};
+
 export default function DetailCampaignPage() {
+  const router = useRouter();
+
+  const { id } = router.query as { id: string };
+
   const KETENTUAN_TABS: KetentuanTabsType[] = [
     {
       id: 'umum',
@@ -37,6 +66,44 @@ export default function DetailCampaignPage() {
       content: <KetentuanUmum />,
     },
   ];
+
+  const { mutateAsync: applyCampaign } = useCampaignsEventToast();
+
+  //#region  //*=========== Fetch Data ===========
+  const url = queryString.stringifyUrl(
+    {
+      url: `/campaigns/${id}`,
+    },
+    {
+      arrayFormat: 'comma',
+    },
+  );
+  const { data: queryData } = useQuery<
+    ApiResponse<CampaignDetail>,
+    AxiosError<ApiError>
+  >([url]);
+  //#endregion  //*======== Fetch Data ===========
+
+  const data = queryData?.data;
+
+  if (id === undefined) {
+    return (
+      <Layout>
+        <Seo templateTitle='Detail Campaign' />
+
+        <main>
+          <Header />
+          <section className='layout'>
+            <Typography as='h1' variant='h1'>
+              Campaign Not Found
+            </Typography>
+            <ButtonLink href='/campaign'>Kembali ke halaman utama</ButtonLink>
+          </section>
+        </main>
+      </Layout>
+    );
+  }
+
   return (
     <Layout>
       <Seo templateTitle='Detail Campaign' />
@@ -152,10 +219,29 @@ export default function DetailCampaignPage() {
                   width={320}
                   height={320}
                 />
+                {data?.is_registered && (
+                  <div className='mt-4'>
+                    <UploadTaskModal task={[]}>
+                      {({ openModal }) => (
+                        <Button onClick={openModal} className='mt-4 w-full'>
+                          Upload Tugas
+                        </Button>
+                      )}
+                    </UploadTaskModal>
+                  </div>
+                )}
               </div>
-              <Button className='mt-4 w-full' variant='primary'>
-                Ikut Campaign
-              </Button>
+              {!data?.is_registered && (
+                <div className='mt-4'>
+                  <Button
+                    className='mt-4 w-full'
+                    variant='primary'
+                    onClick={() => applyCampaign({ campaign_id: id })}
+                  >
+                    Ikut Campaign
+                  </Button>
+                </div>
+              )}
 
               <div className='bg-gray-50 mt-4 h-[120px] p-4'>
                 <Typography as='h3' variant='h3'>

@@ -37,14 +37,10 @@ export default function Breadcrumb({
       className={clsxm('space-x-1 flex justify-start items-center', className)}
       {...rest}
     >
-      <IconButton icon={Home} className='!text-[#B00BFF]' variant='ghost' />
+      <IconButton icon={Home} variant='ghost' />
       {crumbs.map((crumb) => (
         <React.Fragment key={crumb}>
-          <PrimaryLink
-            href={crumb}
-            className='font-medium !text-[#B00BFF]'
-            size='sm'
-          >
+          <PrimaryLink href={crumb} className='font-medium' size='sm'>
             {breadcrumbs[crumb]}
           </PrimaryLink>
           <span className='font-medium text-typo'>/</span>

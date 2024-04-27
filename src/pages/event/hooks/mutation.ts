@@ -1,8 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
-import toast from 'react-hot-toast';
 
 import api from '@/lib/axios';
-import { removeToken, setToken } from '@/lib/cookie';
 import useMutationToast from '@/hooks/toast/useMutationToast';
 
 export type RegisterBody = {
