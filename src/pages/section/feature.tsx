@@ -59,7 +59,7 @@ const List = ({
   );
 };
 
-const AfterHeroSection = () => {
+const FeatureSection = () => {
   return (
     <section className='layout my-32 flex gap-10'>
       <div className='w-1/3 flex items-center justify-center'>
@@ -96,4 +96,4 @@ const AfterHeroSection = () => {
   );
 };
 
-export default AfterHeroSection;
+export default FeatureSection;

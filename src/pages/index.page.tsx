@@ -5,10 +5,10 @@ import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
-import AfterHeroSection from '@/pages/section/after-hero';
 import CampaignSection from '@/pages/section/campaign';
 import CSRSection from '@/pages/section/csr';
 import EventSection from '@/pages/section/event';
+import FeatureSection from '@/pages/section/feature';
 import HeroSection from '@/pages/section/hero';
 import VideoSection from '@/pages/section/video';
 
@@ -20,7 +20,7 @@ export default function HomePage() {
         <section className='bg-white'>
           <Header />
           <HeroSection />
-          <AfterHeroSection />
+          <FeatureSection />
           <CampaignSection />
           <CSRSection />
           <VideoSection />
