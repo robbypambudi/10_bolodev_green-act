@@ -9,7 +9,7 @@ import Button from '@/components/buttons/Button';
 import DevelopmentCard from '@/components/cards/DevelopmentCard';
 import Input from '@/components/forms/Input';
 import PasswordInput from '@/components/forms/PasswordInput';
-import withAuth from '@/components/hoc/withAuth';
+import withVendorAuth from '@/components/hoc/withVendorAuth';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import ArrowLink from '@/components/links/ArrowLink';
@@ -21,12 +21,13 @@ import Typography from '@/components/typography/Typography';
 import REGEX from '@/constant/regex';
 import { useLoginMutation } from '@/pages/login/hooks/mutation';
 
+
 type LoginForm = {
   email: string;
   password: string;
 };
 
-export default withAuth(LoginPage, 'auth');
+export default withVendorAuth(LoginPage, 'all');
 function LoginPage() {
   const { mutateAsync: login, isLoading } = useLoginMutation();
 
@@ -113,7 +114,7 @@ function LoginPage() {
                     <div className='flex flex-wrap gap-4'>
                       <Button
                         onClick={() => {
-                          methods.setValue('email', 'test123@gmail.com');
+                          methods.setValue('email', 'kbs@greenact.com');
                           methods.setValue('password', '12345678');
                         }}
                         variant='secondary'
@@ -147,7 +148,7 @@ function LoginHeader({
         Kembali
       </ArrowLink>
       <Typography as='h1' variant='j1' className='mt-6 font-semibold'>
-        Login
+        Login Vendor
       </Typography>
     </header>
   );

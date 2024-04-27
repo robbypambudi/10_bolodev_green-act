@@ -21,17 +21,25 @@ import Typography from '@/components/typography/Typography';
 import REGEX from '@/constant/regex';
 import { useRegisterMutation } from '@/pages/register/hooks/mutation';
 
+type RegisterForm = {
+  name: string;
+  email: string;
+  password: string;
+  password_confirmation: string;
+};
+
+
 export default withAuth(LoginPage, 'auth');
 function LoginPage() {
   const router = useRouter();
   const { mutateAsync: register, isLoading } = useRegisterMutation();
 
-  const methods = useForm();
+  const methods = useForm<RegisterForm>();
 
   const { handleSubmit } = methods;
 
-  const onSubmit = async (data: any) => {
-    register(data).then((error) => {
+  const onSubmit = async (data: RegisterForm) => {
+    register(data).then(() => {
       router.push('/login');
     });
   };
@@ -125,12 +133,10 @@ function LoginPage() {
                     <div className='flex flex-wrap gap-4'>
                       <Button
                         onClick={() => {
-                          methods.setValue('nisn', '0077633138');
-                          methods.setValue('pin', 'UYMY7B');
-                          methods.setValue(
-                            'kk_or_skd_date',
-                            new Date('2001-08-15'),
-                          );
+                          methods.setValue('name', 'Akun Testing');
+                          methods.setValue('email', 'test123@gmail.com');
+                          methods.setValue('password', '12345678');
+                          methods.setValue('password_confirmation', '12345678');
                         }}
                         variant='secondary'
                       >

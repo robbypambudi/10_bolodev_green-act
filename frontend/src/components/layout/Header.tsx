@@ -12,6 +12,7 @@ import useAuthStore from '@/store/useAuthStore';
 
 export default function Header() {
   const isAuth = useAuthStore.useIsAuthenticated();
+  const logout = useAuthStore.useLogout();
   return (
     <header className='sticky top-0 z-50 bg-white'>
       <div className='layout flex h-20 items-center justify-between'>
@@ -41,10 +42,10 @@ export default function Header() {
               <ButtonLink href='/dashboard' className='border-none'>
                 Dashboard
               </ButtonLink>
-              <Button className='border-none'>Keluar</Button>
+              <Button onClick={() => logout()} variant='outline'>Keluar</Button>
             </div>
           ) : (
-            <ButtonLink href='/login' className='border-none' variant='warning'>
+            <ButtonLink href='/login' >
               Login
             </ButtonLink>
           )}

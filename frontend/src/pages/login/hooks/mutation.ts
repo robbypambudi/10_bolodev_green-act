@@ -1,8 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
-import toast from 'react-hot-toast';
 
 import api from '@/lib/axios';
-import { removeToken, setToken } from '@/lib/cookie';
+import { setToken } from '@/lib/cookie';
 import useMutationToast from '@/hooks/toast/useMutationToast';
 
 import useAuthStore from '@/store/useAuthStore';
@@ -11,7 +10,7 @@ import { ApiResponse } from '@/types/api';
 import { User } from '@/types/entities/user';
 
 export type LoginBody = {
-  username: string;
+  email: string;
   password: string;
 };
 export function useLoginMutation() {

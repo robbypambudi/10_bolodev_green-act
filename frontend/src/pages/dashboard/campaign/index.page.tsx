@@ -1,28 +1,60 @@
 import { useQuery } from '@tanstack/react-query';
 import { ColumnDef } from '@tanstack/react-table';
 import { AxiosError } from 'axios';
+import { Eye } from 'lucide-react';
 
 import { formatLocaleDate } from '@/lib/date';
 
 import withAuth from '@/components/hoc/withAuth';
 import DashboardLayout from '@/components/layout/dashboard/DashboardLayout';
+import IconLink from '@/components/links/IconLink';
 import Seo from '@/components/Seo';
 import Table from '@/components/table/Table';
+import Tag, { TagColor } from '@/components/tag/Tag';
 import Typography from '@/components/typography/Typography';
 
 import { ApiError, ApiResponse } from '@/types/api';
 
 type CampaignHistory = {
+  status: string;
   campaign: {
+    id: string;
     name: string;
     expiry_date: string;
-    status: string;
     action: string;
   };
 };
 
+
+
 export default withAuth(CampaignPage, 'all');
 function CampaignPage() {
+
+  function getStatusLabel(status: string) {
+    if (status === 'pending') {
+      return {
+        text: 'Menunggu',
+        color: 'warning',
+      };
+    }
+    if (status === 'rejected') {
+      return {
+        text: 'Ditolak',
+        color: 'danger',
+      };
+    }
+    if (status === 'approved') {
+      return {
+        text: 'Disetujui',
+        color: 'success',
+      };
+    }
+    return {
+      text: 'Tidak Aktif',
+      color: 'warning',
+    }
+  }
+
   const columns: ColumnDef<CampaignHistory>[] = [
     {
       accessorKey: 'campaign.title',
@@ -40,12 +72,27 @@ function CampaignPage() {
       },
     },
     {
-      accessorKey: 'status',
+      id: 'status',
       header: 'Status',
+      cell: ({ row }) => {
+        return (
+          <Tag color={getStatusLabel(row.original.status).color as TagColor}>
+            {getStatusLabel(row.original.status).text}
+          </Tag>
+        );
+      }
     },
     {
-      accessorKey: 'action',
+      id: 'action',
       header: 'Aksi',
+      cell: ({ row }) => {
+        return (
+          <IconLink
+            icon={Eye}
+            href={`/campaign/${row.original.campaign.id}`}
+          />
+        );
+      }
     },
   ];
 
