@@ -7,6 +7,7 @@ import Seo from '@/components/Seo';
 
 import AfterHeroSection from '@/pages/section/after-hero';
 import CampaignSection from '@/pages/section/campaign';
+import CSRSection from '@/pages/section/csr';
 import EventSection from '@/pages/section/event';
 import HeroSection from '@/pages/section/hero';
 
@@ -20,6 +21,7 @@ export default function HomePage() {
           <HeroSection />
           <AfterHeroSection />
           <CampaignSection />
+          <CSRSection />
           <EventSection />
           <Footer />
         </section>

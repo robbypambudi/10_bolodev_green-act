@@ -1,7 +1,7 @@
 import { Book, Heart, Megaphone } from 'lucide-react';
-import Image from 'next/image';
 import React, { ReactElement } from 'react';
 
+import NextImage from '@/components/NextImage';
 import Typography from '@/components/typography/Typography';
 
 const listData = [
@@ -63,7 +63,7 @@ const AfterHeroSection = () => {
   return (
     <section className='layout my-32 flex gap-10'>
       <div className='w-1/3 flex items-center justify-center'>
-        <Image
+        <NextImage
           src='/images/plant.png'
           alt='Hero Image'
           width={400}
@@ -72,7 +72,7 @@ const AfterHeroSection = () => {
       </div>
       <div className='w-2/3 flex flex-col items-start'>
         {/* ====== SECTION KIRI ======= */}
-        <Typography as='h1' className='text-4xl font-semibold font-averta'>
+        <Typography as='h1' className='text-4xl font-semibold'>
           Hijaukan Bumi kita!
         </Typography>
         <Typography as='p' className='text-lg mt-5 mb-10'>
@@ -81,16 +81,15 @@ const AfterHeroSection = () => {
         </Typography>
         {/* ====== SECTION KANAN ======= */}
         {listData.map((item, index) => (
-          <>
+          <div key={index}>
             <List
-              key={index}
               title={item.title}
               description={item.description}
               bgColor={item.bgColor}
               icon={item.icon}
             />
             {index < 2 && <div className='h-[1px] w-full bg-gray-100 my-5' />}
-          </>
+          </div>
         ))}
       </div>
     </section>
