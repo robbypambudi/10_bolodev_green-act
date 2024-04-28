@@ -22,7 +22,6 @@ import Typography from '@/components/typography/Typography';
 import REGEX from '@/constant/regex';
 import { useLoginMutation } from '@/pages/login/hooks/mutation';
 
-
 type LoginForm = {
   email: string;
   password: string;
@@ -38,16 +37,18 @@ function LoginVendorPage() {
   const { handleSubmit } = methods;
 
   const onSubmit = async (data: LoginForm) => {
-    login(data).catch((error) => {
-      logger('error', error);
-    }).then(() => {
-      router.push('/vendor/dashboard');
-    });
+    login(data)
+      .catch((error) => {
+        logger('error', error);
+      })
+      .then(() => {
+        router.push('/vendor/dashboard');
+      });
   };
 
   return (
     <Layout>
-      <Seo templateTitle='Login Pendaftaran Jalur Lomba' />
+      <Seo templateTitle='Login' />
 
       <main>
         <Header />

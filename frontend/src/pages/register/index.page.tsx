@@ -45,7 +45,7 @@ function LoginPage() {
 
   return (
     <Layout>
-      <Seo templateTitle='Login Pendaftaran Jalur Lomba' />
+      <Seo templateTitle='Login' />
 
       <main>
         <Header />

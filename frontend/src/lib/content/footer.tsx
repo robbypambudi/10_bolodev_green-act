@@ -37,7 +37,7 @@ export const footerData: FooterDataType[] = [
       },
       {
         name: 'CSR',
-        href: '/csr',
+        href: '#',
       },
     ],
   },
