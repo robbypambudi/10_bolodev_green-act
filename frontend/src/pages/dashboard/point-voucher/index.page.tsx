@@ -6,7 +6,7 @@ import Typography from '@/components/typography/Typography';
 import YourVoucherCard from '@/pages/dashboard/components/YourVoucherCard';
 import VoucherCard from '@/pages/section/components/card/voucher-card';
 
-export default withAuth(PointVoucherPage, 'optional');
+export default withAuth(PointVoucherPage, 'all');
 
 function PointVoucherPage() {
   return (
